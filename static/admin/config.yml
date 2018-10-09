@@ -1,5 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: keellyp/gabekelly
+  accept_roles:
+    - admin
   branch: master
 
 publish_mode: editorial_workflow
