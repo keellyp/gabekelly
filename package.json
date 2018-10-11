@@ -6,8 +6,10 @@
   "dependencies": {
     "gatsby": "^2.0.19",
     "gatsby-link": "^2.0.4",
+    "gatsby-plugin-catch-links": "^2.0.4",
     "gatsby-plugin-netlify": "^2.0.1",
     "gatsby-plugin-netlify-cms": "^3.0.3",
+    "gatsby-plugin-page-transitions": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-source-filesystem": "^2.0.2",
     "gatsby-transformer-remark": "^2.1.6",
