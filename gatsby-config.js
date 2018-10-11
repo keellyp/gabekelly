@@ -12,6 +12,12 @@ module.exports = {
       },
     },
 
+    // Avoid the browser having to refresh the page.
+    'gatsby-plugin-catch-links',
+
+    // Page transition plugin
+    'gatsby-plugin-page-transitions',
+
     // Transform markdown into code to query them
     'gatsby-transformer-remark',
 
