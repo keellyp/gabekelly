@@ -1,7 +1,5 @@
 ---
 templateKey: trip
-path: '{{slug}}'
-published_date: '{{year}}-{{month}}-{{day}}'
 title: Article1
 description: Description Article1
 tag:

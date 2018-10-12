@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from "../components/layout"
 
 class index extends Component {
@@ -13,12 +13,13 @@ class index extends Component {
         <h1>{siteTitle}</h1>
         {posts.map((post, index) => {
           const data = post.node.frontmatter
+          const {slug} = post.node.fields
           return (
-            <div key={index}>
+            <Link key={index} to={slug} >
               <h2>{data.title}</h2>
               <p>{data.description}</p>
               <hr />
-            </div>
+            </Link>
           )
         })}
       </Layout>
@@ -39,14 +40,14 @@ export const pageQuery = graphql`
     allMarkdownRemark {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             title
-            templateKey
-            date
-            description
           }
         }
       }
-    }		
+    }
   }
 `

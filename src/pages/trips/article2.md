@@ -1,8 +1,6 @@
 ---
 templateKey: trip
-path: '{{slug}}'
-published_date: '{{year}}-{{month}}-{{day}}'
-title: Article2 title
+title: Article2
 description: Article2 description
 tag:
   - City trip
