@@ -11,37 +11,87 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "trips"
-    label: "Trips"
-    label_singular: "Trip"
-    folder: "src/pages/trips"
-    slug: "{{slug}}"
+  - name: trips
+    label: Trips
+    label_singular: Trip
+    folder: src/pages/trips
+    slug: {{slug}}
     create: true
     fields:
-      - {label: "Path", name: "path", widget: "hidden", default: "{{slug}}"}
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mma"}
-      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Meta Description", name: "meta_description", widget: "text", required: false}
-      - label: Thumbnail
-        name: thumbnail
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: trip
+
+      - label: Path
+        name: path
+        widget: hidden
+        default: {{slug}}
+
+      - label: Published
+        name: published
+        widget: hidden
+        default: {{day}}-{{month}}-{{year}}
+
+      - label: Title
+        name: title
+        widget: string
+        tagname: h1
+
+      - label: Description
+        name: description
+        widget: text
+
+      - label: Meta Description
+        name: meta_description
+        widget: text
+        required: false
+
+      - label: Meta Thumbnail
+        name: meta_thumbnail
         widget: object
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: "image"}
-      - {label: "Date", name: "date", widget: "date", format: "MMMM YYYY"}
-      - {label: "Tag", name: "tag", widget: "list"}
+          - label: Meta thumbnail title
+            name: meta_thumbnail_title
+            widget: string
+          - label: Meta thumbnail image
+            name: mata_thumbnail_image
+            widget: image
+
+      - label: Date
+        name: date
+        widget: date
+        format: MMMM YYYY
+
+      - label: Tag
+        name: tag
+        widget: list
+
       - label: Cover
         name: cover
         widget: object
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+          - label: Title
+            name: title
+            widget: string
+          - label: Image
+            name: image
+            widget: image
+
+      - label: Body
+        name: body
+        widget: markdown
       - label: Gallery
         name: gallery
         widget: list
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Style, name: style_position, widget: select, options: ["left", "center", "right"]}
-          - {label: Image, name: image, widget: "image"}
+          - label: Title
+            name: title
+            widget: string
+          - label: Style,
+            name: style_position,
+            widget: select,
+            options: ['left', 'center', 'right'],
+          - label: Image
+            name: image
+            widget: image
