@@ -1,20 +1,26 @@
 ---
-templateKey: trip
 path: warsaw
-date: 2018
-title: Warsaw
-thumbnail: /img/img_9747.jpg
+title: Ceci est le titre
+description: Ceci est la description
 tag:
   - City trip
-description: >
-  Lorem ipsum dolor sit amet, at sit iisque delicata vituperata. Populo vocent
-  tritani mel cu, in nullam copiosae constituam mei. Eu mei habeo oporteat.
-  Aliquip labores commune duo ad, te eos molestie verterem. Cu ridens inermis
-  cum. Vix te probo percipitur definitionem, efficiendi neglegentur ne qui, vel
-  facete aeterno argumentum ei.
+date_month: january
+data_year: 2018
+cover:
+  alt: Musee des neons
+  image: /img/img_9747.jpg
+gallery:
+  - alt: Moi au resto
+    image: /img/profile-square.jpg
+    position: left
+  - alt: Moi au resto 2
+    image: /img/profile-square.jpg
+    position: center
+meta_description: Ceci est l'article test
+meta_thumbnail:
+  alt: Ceci est le thumbnail
+  image: /img/screen-shot-2018-10-12-at-14.22.00.png
 ---
-Ea discere senserit scribentur sea, sit ne iriure liberavisse. Id his virtute maiorum. Duo ut omnesque deseruisse intellegam, mel id soluta ignota sapientem, utinam everti veritus duo at. Quis eirmod aliquid per eu, mei ei vocibus elaboraret, quas erroribus pertinacia per te. Ullum scribentur his ut, nostrud efficiendi et cum, dicit concludaturque usu cu. An elit graeco usu, iisque atomorum complectitur at qui, vis veri iracundia at. Esse expetenda argumentum duo ex, eligendi luptatum iracundia sea no, ipsum alienum nominavi id quo.
+Ceci est le **corps de texte**
 
-Duo te stet sonet. No erroribus elaboraret sit. Dolore epicurei temporibus cu est. Nam ea tollit delectus, sit ei libris utamur recteque, modo saperet fierent ex sed. Cu eum alia adhuc tation.
-
-![Musée des néons](/img/img_9747.jpg)
+****
