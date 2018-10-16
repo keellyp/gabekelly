@@ -15,29 +15,34 @@ collections:
     label: Trips
     label_singular: Trip
     folder: src/pages/trips
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "trip"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Tag", name: "tag", widget: "list"}
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'trip',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Tag', name: 'tag', widget: 'list' }
 
       - label: Month
         name: date_month
         widget: select
         options:
-          - { label: "January", value: "january" }
-          - { label: "February", value: "february" }
-          - { label: "March", value: "march" }
-          - { label: "April", value: "april" }
-          - { label: "June", value: "june" }
-          - { label: "July", value: "july" }
-          - { label: "August", value: "august" }
-          - { label: "September", value: "september" }
-          - { label: "October", value: "october" }
-          - { label: "November", value: "november" }
-          - { label: "December", value: "december" }
+          - { label: 'January', value: 'january' }
+          - { label: 'February', value: 'february' }
+          - { label: 'March', value: 'march' }
+          - { label: 'April', value: 'april' }
+          - { label: 'June', value: 'june' }
+          - { label: 'July', value: 'july' }
+          - { label: 'August', value: 'august' }
+          - { label: 'September', value: 'september' }
+          - { label: 'October', value: 'october' }
+          - { label: 'November', value: 'november' }
+          - { label: 'December', value: 'december' }
 
       - label: Year
         name: data_year
@@ -50,26 +55,41 @@ collections:
         name: cover
         widget: object
         fields:
-          - {label: "Alt", name: "alt", widget: "string"}
-          - {label: "Image", name: "image", widget: "image"}
+          - { label: 'Alt', name: 'alt', widget: 'string' }
+          - { label: 'Image', name: 'image', widget: 'image' }
 
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: 'Body', name: 'body', widget: 'markdown' }
 
-      - label: Gallery
-        name: gallery
-        widget: list
+      - label: 'Galleries'
+        name: 'galleries'
+        widget: 'list'
         fields:
-          - {label: "Alt", name: "alt", widget: "string"}
-          - {label: "Position", name: "position", widget: "select", options: ['left', 'right', 'center']}
-          - {label: "Image", name: "image", widget: "image"}
+          - label: 'Grid type'
+            name: 'grid_type'
+            widget: 'select'
+            options:
+              ['twoSquares-onePortrait', 'three-squares', 'two-portraits-left']
+
+          - label: Gallery
+            name: gallery
+            widget: list
+            fields:
+              - { label: 'Alt', name: 'alt', widget: 'string' }
+              - {
+                  label: 'Position',
+                  name: 'position',
+                  widget: 'select',
+                  options: ['left', 'right', 'center'],
+                }
+              - { label: 'Image', name: 'image', widget: 'image' }
 
       - label: Meta Description
         name: meta_description
         widget: string
-      
+
       - label: Meta Thumbnail
         name: meta_thumbnail
         widget: object
         fields:
-          - {label: "Alt", name: "alt", widget: "string"}
-          - {label: "Image", name: "image", widget: "image"}
+          - { label: 'Alt', name: 'alt', widget: 'string' }
+          - { label: 'Image', name: 'image', widget: 'image' }
