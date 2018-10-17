@@ -25,7 +25,12 @@ module.exports = {
     'gatsby-plugin-react-helmet',
 
     // Implement Netlify CMS
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
 
     // Configure HTTP headers and redirects for Netlify.
     'gatsby-plugin-netlify',
