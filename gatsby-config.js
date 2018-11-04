@@ -8,7 +8,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
+        name: 'pages',
       },
     },
 
@@ -17,6 +17,9 @@ module.exports = {
 
     // Page transition plugin
     'gatsby-plugin-page-transitions',
+
+    // Styling with styled-component
+    'gatsby-plugin-styled-components',
 
     // Transform markdown into code to query them
     'gatsby-transformer-remark',
