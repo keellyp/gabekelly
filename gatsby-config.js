@@ -1,14 +1,16 @@
+const siteConfig = require('./site-config')
+
 module.exports = {
   siteMetadata: {
-    title: 'Le super blog',
+    ...siteConfig,
   },
   plugins: [
     // Parse files within a folder for further plugin usages
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
+        path: `${__dirname}/src/datas`,
+        name: 'datas',
       },
     },
 
@@ -21,8 +23,13 @@ module.exports = {
     // Styling with styled-component
     'gatsby-plugin-styled-components',
 
-    // Transform markdown into code to query them
-    'gatsby-transformer-remark',
+    // Transform json into code to query them via graphql
+    {
+      resolve: 'gatsby-transformer-json',
+      options: {
+        typeName: 'Json', // a fixed string
+      },
+    },
 
     // Control document head using Helmet component
     'gatsby-plugin-react-helmet',
