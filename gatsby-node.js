@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
               fields {
                 slug
               }
+              id
             }
           }
         }
@@ -42,11 +43,12 @@ exports.createPages = ({ graphql, actions }) => {
       nodes.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
-          component: path.resolve('./src/templates/trip.js'),
+          component: path.resolve('./src/pages/trip.js'),
           context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: node.fields.slug,
+            id: node.id,
           },
         })
       })
