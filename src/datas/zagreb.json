@@ -1,0 +1,128 @@
+{
+  "title": "Zagreb",
+  "tag": "With friends",
+  "date_month": "april",
+  "data_year": 2017,
+  "cover": {
+    "alt": "A week with some friends in Zagreb, Croatia",
+    "src": "/img/zagreb/cover.jpg"
+  },
+  "meta_description": "In April 2017, we tooked the bus from Paris to Zagreb. 20 hours later and during a week, we visited this super nice city and especially Plitvice",
+  "meta_thumbnail": {
+    "alt": "Zagreb with friends",
+    "src": "/img/zagreb/thumbnail.jpg"
+  },
+  "content": {
+    "title": "A week in Zagreb with friends, and a super nice day at Plitvice",
+    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "gallery": [{
+        "type": "3-squares",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "3-mosaic",
+        "position": null,
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/zagreb/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-square",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/zagreb/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "3-squares",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/",
+            "position": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

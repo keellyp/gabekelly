@@ -1,0 +1,117 @@
+{
+  "title": "Warsaw",
+  "tag": "City break",
+  "date_month": "january",
+  "data_year": 2018,
+  "cover": {
+    "alt": "Discover Warsaw through our eyes",
+    "src": "/img/warsaw/cover.jpg"
+  },
+  "meta_description": "In January, we went to Warsaw during a week. ",
+  "meta_thumbnail": {
+    "alt": "A week in Warsaw",
+    "src": "/img/warsaw/thumbnail.jpg"
+  },
+  "content": {
+    "title": "A week in Warsaw in winter",
+    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "gallery": [{
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/warsaw/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "3-squares",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "3-mosaic",
+        "position": null,
+        "images": [{
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-square",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/warsaw/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "2-square-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "Reykjavík",
+          "src": "/img/warsaw/",
+          "position": "center"
+        }]
+      }
+    ]
+  }
+}

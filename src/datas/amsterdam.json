@@ -1,0 +1,139 @@
+{
+  "title": "Amsterdam",
+  "tag": "Expat life",
+  "date_month": "summer",
+  "data_year": 2018,
+  "cover": {
+    "alt": "Amsterdam in four months",
+    "src": "/img/amsterdam/cover.jpg"
+  },
+  "meta_description": "Kelly did her internship during four months in Amsterdam. We had the opportunity to live like Dutch people and here's what It looked like",
+  "meta_thumbnail": {
+    "alt": "Amsterdam in four months",
+    "src": "/img/amsterdam/thumbnail.jpg"
+  },
+  "content": {
+    "title": "Four months in Amsterdam during summer : from Ijburg to De Baarjes",
+    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "gallery": [{
+        "type": "2-square-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "4-squares",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/warsaw/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/amsterdam/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "3-squares",
+        "position": null,
+        "images": [{
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-square-portrait",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "3-mosaic",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/amsterdam/",
+            "position": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Geneva",
+  "tag": "Day trip",
+  "date_month": "october",
+  "data_year": 2017,
+  "cover": {
+    "alt": "Short day in South of France and Switzerland",
+    "src": "/img/geneva/cover.jpg"
+  },
+  "meta_description": "Short day in South of France and Switzerland",
+  "meta_thumbnail": {
+    "alt": "Short day in South of France and Switzerland",
+    "src": "/img/geneva/thumbnail.jpg"
+  },
+  "content": {
+    "title": "A quick stop in Geneva and in Annecy during a weekend in Lyon",
+    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "gallery": [{
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/geneva/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "right",
+        "images": [{
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "3-mosaic",
+        "position": null,
+        "images": [{
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/",
+            "position": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

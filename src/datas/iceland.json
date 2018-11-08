@@ -1,0 +1,114 @@
+{
+  "title": "Iceland",
+  "tag": "Road trip",
+  "date_month": "february",
+  "data_year": 2018,
+  "cover": {
+    "alt": "Discover Iceland through our eyes",
+    "src": "/img/iceland/cover.jpg"
+  },
+  "meta_description": "In February, we went to Iceland during a week. We decided to explore South of Iceland by car, through the Ring Road.We stopped multiple times, and we tooked some pictures in the middle of nowhere.",
+  "meta_thumbnail": {
+    "alt": "Ring road in Iceland",
+    "src": "/img/iceland/thumbnail.jpg"
+  },
+  "content": {
+    "title": "Our trip in Iceland: from Reykjavik to Vatnajokull National Park",
+    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "gallery": [{
+        "type": "3-mosaic",
+        "position": null,
+        "images": [{
+            "alt": "Þingvellir National Park",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Geysir Strokkur",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Geysir Strokkur",
+            "src": "/img/iceland/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-square-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "Sunset at the gas station",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Moon rising at Dyrhólaey",
+            "src": "/img/iceland/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "Reynisfjara Beach",
+          "src": "/img/iceland/",
+          "position": "center"
+        }]
+      },
+      {
+        "type": "4-squares",
+        "position": "right",
+        "images": [{
+            "alt": "Quiet place",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Gullfoss waterfall",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Flúðalaug",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Þingvellir National Park",
+            "src": "/img/iceland/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "Somewhere near Sólheimasandur",
+            "src": "/img/iceland/",
+            "position": "center"
+          },
+          {
+            "alt": "Vatnajökull National Park",
+            "src": "/img/iceland/",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-full",
+        "position": null,
+        "images": [{
+          "alt": "Reykjavík",
+          "src": "/img/iceland/",
+          "position": "center"
+        }]
+      }
+    ]
+  }
+
+}
