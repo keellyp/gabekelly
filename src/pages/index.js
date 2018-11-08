@@ -1,47 +1,36 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 class index extends Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const posts = this.props.data.allMarkdownRemark.edges
-
+    const posts = this.props.data.allJson.edges
     return (
       <Layout location={this.props.location}>
-        <h1>{siteTitle}</h1>
-        {posts.map((post, index) => {
-          const data = post.node.frontmatter
-          const { slug } = post.node.fields
-          return (
-            <Link key={index} to={slug}>
-              <h2>{data.title}</h2>‡
-            </Link>
-          )
-        })}
+        {posts.map((post, index) => (
+          <Link key={index} to={post.node.fields.slug}>
+            <h1>{post.node.title}</h1>
+            <img src={post.node.cover.src} alt={post.node.cover.alt} />
+          </Link>
+        ))}
       </Layout>
     )
   }
 }
-
 export default index
 
 export const pageQuery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark {
+    allJson {
       edges {
         node {
           fields {
             slug
           }
-          frontmatter {
-            title
+          title
+          cover {
+            alt
+            src
           }
         }
       }
