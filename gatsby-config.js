@@ -17,9 +17,6 @@ module.exports = {
     // Avoid the browser having to refresh the page.
     'gatsby-plugin-catch-links',
 
-    // Page transition plugin
-    'gatsby-plugin-page-transitions',
-
     // Styling with styled-component
     'gatsby-plugin-styled-components',
 
