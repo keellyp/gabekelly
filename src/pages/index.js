@@ -6,14 +6,16 @@ class index extends Component {
   render() {
     const posts = this.props.data.allJson.edges
     return (
-      <Layout location={this.props.location}>
-        {posts.map((post, index) => (
-          <Link key={index} to={post.node.fields.slug}>
-            <h1>{post.node.title}</h1>
-            <img src={post.node.cover.src} alt={post.node.cover.alt} />
-          </Link>
-        ))}
-      </Layout>
+      <React.Fragment>
+        <Layout>
+          {posts.map((post, index) => (
+            <Link key={index} to={post.node.fields.slug}>
+              <h1>{post.node.title}</h1>
+              <img src={post.node.cover.src} alt={post.node.cover.alt} />
+            </Link>
+          ))}
+        </Layout>
+      </React.Fragment>
     )
   }
 }

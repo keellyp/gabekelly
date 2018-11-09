@@ -1,23 +1,39 @@
 import React, { Component } from 'react'
+import { Metatags } from '../components/Head'
 import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 
 export default class trip extends Component {
   render() {
-    const datas = this.props.data.json
+    const datas = this.props.data
+    const url = ''
     return (
-      <div>
-        <span>{datas.tag}</span>
-        <h2>{datas.title}</h2>
-        <span>
-          {datas.date_month} {datas.data_year}
-        </span>
-      </div>
+      <React.Fragment>
+        <Layout>
+          <Metatags
+            title={`${datas.site.siteMetadata.siteTitle} - ${datas.json.title}`}
+            description={datas.json.meta_description}
+            thumbnail={url + datas.json.meta_thumbnail}
+            url={url}
+          />
+          <span>{datas.json.tag}</span>
+          <h2>{datas.json.title}</h2>
+          <span>
+            {datas.json.date_month} {datas.json.data_year}
+          </span>
+        </Layout>
+      </React.Fragment>
     )
   }
 }
 
 export const pageQuery = graphql`
   query TripQuery($id: String!) {
+    site {
+      siteMetadata {
+        siteTitle
+      }
+    }
     json(id: { eq: $id }) {
       title
       tag

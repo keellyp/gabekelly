@@ -1,14 +1,59 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 
 import { GlobalStyle } from '../utils/global.css'
 import Header from './Header'
+import Head from './Head'
 
-const Layout = ({ children }) => (
-  <React.Fragment>
-    <GlobalStyle />
-    <Header />
-    {children}
-  </React.Fragment>
-)
+const Layout = ({ data, children }) => {
+  return (
+    <React.Fragment>
+      <Head data={data} />
+      <GlobalStyle />
+      <Header />
+      {children}
+    </React.Fragment>
+  )
+}
 
-export default Layout
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  data: PropTypes.object.isRequired,
+}
+
+const LayoutWithQuery = props => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query LayoutWithQuery {
+          site {
+            siteMetadata {
+              siteTitle
+              siteDescription
+              siteUrl
+              siteLogo
+              favicon {
+                ico
+                small
+                large
+                apple
+                androidSmall
+                androidLarge
+                ms
+                safari
+              }
+            }
+          }
+        }
+      `}
+      render={data => <Layout data={data} {...props} />}
+    />
+  )
+}
+
+export default LayoutWithQuery
+
+LayoutWithQuery.propTypes = {
+  children: PropTypes.node.isRequired,
+}
