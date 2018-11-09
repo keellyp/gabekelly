@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Metatags } from '../components/Head'
 import { graphql } from 'gatsby'
+
+import { Metatags } from '../components/Head'
 import Layout from '../components/layout'
 
 export default class trip extends Component {
