@@ -1,19 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
-
-import MaisonNeueBold from '../../static/fonts/MaisonNeue-Bold.otf'
-import MaisonNeueBook from '../../static/fonts/MaisonNeue-Book.otf'
+import { withPrefix } from 'gatsby'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: Maison Neue;
     font-weight: bold;
-    src: url(${MaisonNeueBold});
+    src: url(${withPrefix('fonts/MaisonNeue-Bold.otf')});
   }
 
   @font-face {
     font-family: Maison Neue;
     font-weight: normal;
-    src: url(${MaisonNeueBook});
+    src: url(${withPrefix('fonts/MaisonNeue-Book.otf')});
   }
 
   *,

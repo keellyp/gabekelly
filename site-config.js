@@ -1,7 +1,6 @@
 const path = require('path')
 
 module.exports = {
-  pathPrefix: '/',
   siteLanguage: 'en',
   siteTitle: 'Gabe & Kelly',
   siteDescription: 'Gabe&Kelly keeps our memories alive.',

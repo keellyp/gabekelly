@@ -1,9 +1,8 @@
 const siteConfig = require('./site-config')
 
 module.exports = {
-  siteMetadata: {
-    ...siteConfig,
-  },
+  pathPrefix: '/',
+  siteMetadata: { ...siteConfig },
   plugins: [
     // Parse files within a folder for further plugin usages
     {
