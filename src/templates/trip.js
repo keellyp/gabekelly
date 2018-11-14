@@ -3,11 +3,13 @@ import { graphql } from 'gatsby'
 
 import { Metatags } from '../components/Head'
 import Layout from '../components/Layout'
+import * as Grids from '../components/Gallery'
 
 export default class trip extends Component {
   render() {
     const datas = this.props.data
     const url = ''
+    const galleries = datas.json.content.gallery
     return (
       <React.Fragment>
         <Layout>
@@ -22,6 +24,25 @@ export default class trip extends Component {
           <span>
             {datas.json.date_month} {datas.json.data_year}
           </span>
+          {galleries.map((gallery, index) => {
+            switch (gallery.type) {
+            case '1-full':
+              for (let i = 0; i < gallery.images.length; i++) {
+                const image = gallery.images[i]
+                return (
+                  <Grids.OneSquare
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    position={image.position}
+                  />
+                )
+              }
+              break
+            default:
+              break
+            }
+          })}
         </Layout>
       </React.Fragment>
     )
