@@ -45,7 +45,7 @@ const GridThreeSquares = styled(Grid)`
   grid-template-columns: ${props =>
     props.position === 'left'
       ? 'minmax(300px, 30%) auto'
-      : 'auto minmax(300, 30%)'};
+      : 'auto minmax(300px, 30%)'};
   grid-template-areas: ${props =>
     props.position === 'left'
       ? '"square1 side" "square2 side"'

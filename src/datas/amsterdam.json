@@ -35,22 +35,22 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/5.jpg",
+            "src": "/img/amsterdam/5.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/2.jpg",
+            "src": "/img/amsterdam/2.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/1.jpg",
+            "src": "/img/amsterdam/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/15.jpg",
+            "src": "/img/amsterdam/15.jpg",
             "position": "center"
           }
         ]
