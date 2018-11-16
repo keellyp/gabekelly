@@ -6,10 +6,90 @@ import Layout from '../components/Layout'
 import * as Grids from '../components/Gallery'
 
 export default class trip extends Component {
+  constructor(props) {
+    super(props)
+    this._grids = []
+    this._galleries = this.props.data.json.content.gallery
+  }
+
+  _loopIntoGalleries() {
+    this._galleries.map(el => {
+      switch (el.type) {
+      case '1-full':
+        this._grids.push(
+          <Grids.OneFull
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '1-square':
+        this._grids.push(
+          <Grids.OneSquare
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '2-landscape-portrait':
+        this._grids.push(
+          <Grids.TwoLandscapePortrait
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '2-square-portrait':
+        this._grids.push(
+          <Grids.TwoSquarePortrait
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '3-mosaic':
+        this._grids.push(
+          <Grids.ThreeMosaic
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '3-squares':
+        this._grids.push(
+          <Grids.ThreeSquares
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      case '4-squares':
+        this._grids.push(
+          <Grids.FourSquares
+            key={this._grids.length}
+            images={el.images}
+            position={el.position}
+          />
+        )
+        break
+      default:
+        break
+      }
+    })
+  }
+
   render() {
     const datas = this.props.data
     const url = ''
-    const galleries = datas.json.content.gallery
+
+    this._loopIntoGalleries()
+
     return (
       <React.Fragment>
         <Layout>
@@ -24,25 +104,7 @@ export default class trip extends Component {
           <span>
             {datas.json.date_month} {datas.json.data_year}
           </span>
-          {galleries.map((gallery, index) => {
-            switch (gallery.type) {
-            case '1-full':
-              for (let i = 0; i < gallery.images.length; i++) {
-                const image = gallery.images[i]
-                return (
-                  <Grids.OneSquare
-                    key={index}
-                    src={image.src}
-                    alt={image.alt}
-                    position={image.position}
-                  />
-                )
-              }
-              break
-            default:
-              break
-            }
-          })}
+          {this._grids}
         </Layout>
       </React.Fragment>
     )
