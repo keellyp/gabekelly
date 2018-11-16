@@ -20,7 +20,7 @@
         "position": null,
         "images": [{
           "alt": "Salut",
-          "src": "/img/geneva/",
+          "src": "/img/geneva/3.jpg",
           "position": "center"
         }]
       },
@@ -29,12 +29,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/geneva/6.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/geneva/13.jpg",
             "position": "center"
           }
         ]
@@ -44,36 +44,80 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/geneva/2.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/geneva/14.jpg",
             "position": "center"
           }
         ]
+      },
+      {
+        "type": "3-squares",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/geneva/5.jpg",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/8.jpg",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/geneva/7.jpg",
+            "position": "center"
+          }
+        ]
+      },
+      {
+        "type": "1-square",
+        "position": null,
+        "images": [{
+          "alt": "",
+          "src": "/img/zagreb/11.jpg",
+          "position": "center"
+        }]
       },
       {
         "type": "3-mosaic",
         "position": null,
         "images": [{
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/zagreb/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/zagreb/9.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/geneva/",
+            "src": "/img/zagreb/10.jpg",
             "position": "center"
           }
         ]
-      }
+      },
+      {
+        "type": "2-landscape-portrait",
+        "position": "left",
+        "images": [{
+            "alt": "",
+            "src": "/img/zagreb/4.jpg",
+            "position": "center"
+          },
+          {
+            "alt": "",
+            "src": "/img/zagreb/12.jpg",
+            "position": "center"
+          }
+        ]
+      },
     ]
   }
 }

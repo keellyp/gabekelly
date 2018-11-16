@@ -20,17 +20,17 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/14.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/2.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/3.jpg",
             "position": "center"
           }
         ]
@@ -40,17 +40,17 @@
         "position": null,
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/12.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/13.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/5.jpg",
             "position": "center"
           }
         ]
@@ -60,7 +60,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/zagreb/",
+          "src": "/img/zagreb/6.jpg",
           "position": "center"
         }]
       },
@@ -69,12 +69,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/11.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/8.jpg",
             "position": "center"
           }
         ]
@@ -84,7 +84,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/zagreb/",
+          "src": "/img/zagreb/9.jpg",
           "position": "center"
         }]
       },
@@ -93,36 +93,30 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/7.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/",
+            "src": "/img/zagreb/4.jpg",
             "position": "center"
           }
         ]
       },
       {
-        "type": "2-landscape-portrait",
-        "position": "right",
+        "type": "1-full",
+        "position": null,
         "images": [{
-            "alt": "",
-            "src": "/img/zagreb/",
-            "position": "center"
-          },
-          {
-            "alt": "",
-            "src": "/img/zagreb/",
-            "position": "center"
-          }
-        ]
-      }
+          "alt": "",
+          "src": "/img/zagreb/10.jpg",
+          "position": "center"
+        }]
+      },
     ]
   }
 }

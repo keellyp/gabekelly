@@ -20,12 +20,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/3.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/8.jpg",
             "position": "center"
           }
         ]
@@ -35,7 +35,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/warsaw/",
+          "src": "/img/warsaw/7.jpg",
           "position": "center"
         }]
       },
@@ -44,17 +44,17 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/9.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/2.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/11.jpg",
             "position": "center"
           }
         ]
@@ -64,17 +64,17 @@
         "position": null,
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/4.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/5.jpg",
             "position": "center"
           }
         ]
@@ -84,7 +84,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/warsaw/",
+          "src": "/img/warsaw/6.jpg",
           "position": "center"
         }]
       },
@@ -93,12 +93,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/13.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/10.jpg",
             "position": "center"
           }
         ]
@@ -108,7 +108,7 @@
         "position": null,
         "images": [{
           "alt": "Reykjavík",
-          "src": "/img/warsaw/",
+          "src": "/img/warsaw/12.jpg",
           "position": "center"
         }]
       }

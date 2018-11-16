@@ -20,12 +20,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/8.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/10.jpg",
             "position": "center"
           }
         ]
@@ -35,22 +35,22 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/5.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/2.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/warsaw/",
+            "src": "/img/warsaw/15.jpg",
             "position": "center"
           }
         ]
@@ -60,7 +60,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/amsterdam/",
+          "src": "/img/amsterdam/7.jpg",
           "position": "center"
         }]
       },
@@ -69,17 +69,17 @@
         "position": null,
         "images": [{
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/16.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/13.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/4.jpg",
             "position": "center"
           }
         ]
@@ -89,12 +89,12 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/9.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/18.jpg",
             "position": "center"
           }
         ]
@@ -104,12 +104,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/14.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/12.jpg",
             "position": "center"
           }
         ]
@@ -119,17 +119,17 @@
         "position": "right",
         "images": [{
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/17.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/19.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/amsterdam/",
+            "src": "/img/amsterdam/11.jpg",
             "position": "center"
           }
         ]
