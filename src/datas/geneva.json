@@ -79,7 +79,7 @@
         "position": null,
         "images": [{
           "alt": "",
-          "src": "/img/zagreb/11.jpg",
+          "src": "/img/geneva/11.jpg",
           "position": "center"
         }]
       },
@@ -88,17 +88,17 @@
         "position": null,
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/1.jpg",
+            "src": "/img/geneva/1.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/9.jpg",
+            "src": "/img/geneva/9.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/10.jpg",
+            "src": "/img/geneva/10.jpg",
             "position": "center"
           }
         ]
@@ -108,12 +108,12 @@
         "position": "left",
         "images": [{
             "alt": "",
-            "src": "/img/zagreb/4.jpg",
+            "src": "/img/geneva/4.jpg",
             "position": "center"
           },
           {
             "alt": "",
-            "src": "/img/zagreb/12.jpg",
+            "src": "/img/geneva/12.jpg",
             "position": "center"
           }
         ]
