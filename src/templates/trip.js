@@ -3,7 +3,10 @@ import { graphql } from 'gatsby'
 
 import { Metatags } from '../components/Head'
 import Layout from '../components/Layout'
-import * as Grids from '../components/Gallery'
+
+import TripHeader from '../components/TripHeader'
+import TripContent from '../components/TripContent'
+import * as Grids from '../components/TripGallery'
 
 export default class trip extends Component {
   constructor(props) {
@@ -99,11 +102,15 @@ export default class trip extends Component {
             thumbnail={url + datas.json.meta_thumbnail}
             url={url}
           />
-          <span>{datas.json.tag}</span>
-          <h2>{datas.json.title}</h2>
-          <span>
-            {datas.json.date_month} {datas.json.data_year}
-          </span>
+          <TripHeader
+            tag={datas.json.tag}
+            title={datas.json.title}
+            date_month={datas.json.date_month}
+            data_year={datas.json.data_year}
+            cover={datas.json.cover}
+          />
+          <TripContent content={datas.json.content} />
+
           {this._grids}
         </Layout>
       </React.Fragment>

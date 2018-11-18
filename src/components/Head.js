@@ -26,7 +26,6 @@ const Head = ({ data }) => {
 }
 
 const HeadWithQuery = props => {
-  console.log(props)
   return (
     <StaticQuery
       query={graphql`
