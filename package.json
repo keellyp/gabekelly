@@ -5,6 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "base-64": "^0.1.0",
+    "exports-loader": "^0.7.0",
     "gatsby": "^2.0.19",
     "gatsby-link": "^2.0.4",
     "gatsby-plugin-catch-links": "^2.0.4",
@@ -14,6 +15,7 @@
     "gatsby-plugin-styled-components": "^3.0.1",
     "gatsby-source-filesystem": "^2.0.2",
     "gatsby-transformer-json": "^2.1.5",
+    "lethargy": "^1.0.4",
     "netlify-cms": "^2.1.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
