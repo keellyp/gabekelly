@@ -41,6 +41,7 @@ const BurgerMenu = styled.div`
   top: 40px;
   left: 40px;
 
+  z-index: 10;
   cursor: pointer;
 
   &:hover {
@@ -82,6 +83,8 @@ const Menu = styled.div`
 
   background-color: ${colors.blackLight};
   color: ${colors.white};
+
+  z-index: 9;
 `
 
 const MenuList = styled.ul`

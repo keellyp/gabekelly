@@ -4,13 +4,19 @@ import { withPrefix } from 'gatsby'
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: Maison Neue;
-    font-weight: bold;
+    font-weight: 600;
     src: url(${withPrefix('fonts/MaisonNeue-Bold.otf')});
   }
 
   @font-face {
     font-family: Maison Neue;
-    font-weight: normal;
+    font-weight: 500;
+    src: url(${withPrefix('fonts/MaisonNeue-Demi.otf')});
+  }
+
+  @font-face {
+    font-family: Maison Neue;
+    font-weight: 400;
     src: url(${withPrefix('fonts/MaisonNeue-Book.otf')});
   }
 
@@ -43,6 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Maison Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
+    font-size: 1.25em;
     line-height: 1.4;
     color: #000; 
     background-color: #f2f2f2;

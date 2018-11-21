@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import { Metatags } from '../components/Head'
 import Layout from '../components/Layout'
@@ -102,6 +103,7 @@ export default class trip extends Component {
             thumbnail={url + datas.json.meta_thumbnail}
             url={url}
           />
+
           <TripHeader
             tag={datas.json.tag}
             title={datas.json.title}
@@ -110,13 +112,17 @@ export default class trip extends Component {
             cover={datas.json.cover}
           />
           <TripContent content={datas.json.content} />
-
-          {this._grids}
+          <Container>{this._grids}</Container>
         </Layout>
       </React.Fragment>
     )
   }
 }
+
+const Container = styled.div`
+  width: 95%;
+  margin: auto;
+`
 
 export const pageQuery = graphql`
   query TripQuery($id: String!) {

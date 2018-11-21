@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import * as colors from '../utils/colors'
+
 const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
 `
 
-const GridImage = styled.img`
+const Caption = styled.img`
+  font-size: 0.9em;
+  line-height: 1em;
+  color: ${colors.grey};
+`
+
+const Image = styled.img`
   width: 100%;
   height: 100%;
 
@@ -96,7 +104,10 @@ export const OneSquare = ({ images, position }) => {
   return (
     <GridOneSquare position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridOneSquare>
   )
@@ -106,7 +117,10 @@ export const OneFull = ({ images, position }) => {
   return (
     <GridOneFull position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridOneFull>
   )
@@ -116,7 +130,10 @@ export const TwoSquarePortrait = ({ images, position }) => {
   return (
     <GridTwoSquarePortrait position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridTwoSquarePortrait>
   )
@@ -125,7 +142,10 @@ export const TwoLandscapePortrait = ({ images, position }) => {
   return (
     <GridTwoLandscapePortrait position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridTwoLandscapePortrait>
   )
@@ -134,7 +154,10 @@ export const ThreeSquares = ({ images, position }) => {
   return (
     <GridThreeSquares position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridThreeSquares>
   )
@@ -143,7 +166,10 @@ export const ThreeMosaic = ({ images, position }) => {
   return (
     <GridThreeMosaic position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridThreeMosaic>
   )
@@ -152,7 +178,10 @@ export const FourSquares = ({ images, position }) => {
   return (
     <GridFourSquares position={position}>
       {images.map((img, index) => (
-        <GridImage key={index} src={img.src} alt={img.alt} />
+        <React.Fragment>
+          <Image key={index} src={img.src} alt={img.alt} />
+          <Caption>{img.alt}</Caption>
+        </React.Fragment>
       ))}
     </GridFourSquares>
   )
