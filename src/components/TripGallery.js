@@ -5,16 +5,25 @@ import * as colors from '../utils/colors'
 
 const Grid = styled.div`
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 2vw;
+  margin: 20px 0;
 `
 
-const Caption = styled.img`
+const GridContainer = styled.div`
+  height: 100%;
+
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-rows: auto 1em;
+`
+
+const Caption = styled.p`
   font-size: 0.9em;
   line-height: 1em;
   color: ${colors.grey};
 `
 
-const Image = styled.img`
+const GridImage = styled.img`
   width: 100%;
   height: 100%;
 
@@ -24,78 +33,70 @@ const Image = styled.img`
 
 const GridOneSquare = styled(Grid)`
   grid-auto-columns: 1fr;
-  grid-template-rows: 800px;
+  grid-template-rows: 100vw;
 `
 
 const GridOneFull = styled(Grid)`
   grid-auto-columns: 1fr;
-  grid-template-rows: 500px;
+  grid-template-rows: 50vw;
 `
 
 const GridTwoSquarePortrait = styled(Grid)`
-  grid-template-rows: 500px;
+  grid-template-rows: 68vw;
   grid-template-columns: ${props =>
-    props.position === 'left'
-      ? 'minmax(300px, 30%) auto'
-      : 'auto minmax(300px, 30%)'};
+    props.position === 'left' ? '31vw auto' : 'auto 31vw'};
 `
 
 const GridTwoLandscapePortrait = styled(Grid)`
-  grid-template-rows: 350px;
+  grid-template-rows: 34vw;
   grid-template-columns: ${props =>
-    props.position === 'left'
-      ? 'minmax(300px, 30%) auto'
-      : 'auto minmax(300px, 30%)'};
+    props.position === 'left' ? '31vw auto' : 'auto 31vw'};
 `
 
 const GridThreeSquares = styled(Grid)`
-  grid-template-rows: repeat(2, 450px);
+  grid-template-rows: repeat(2, 31vw);
   grid-template-columns: ${props =>
-    props.position === 'left'
-      ? 'minmax(300px, 30%) auto'
-      : 'auto minmax(300px, 30%)'};
+    props.position === 'left' ? '31vw auto' : 'auto 31vw'};
   grid-template-areas: ${props =>
     props.position === 'left'
       ? '"square1 side" "square2 side"'
       : '"side square1" "side square2"'};
 
-  img:nth-child(1) {
+  ${GridContainer}:nth-child(1) {
     grid-area: square1;
   }
-  img:nth-child(2) {
+  ${GridContainer}:nth-child(2) {
     grid-area: square2;
   }
-  img:nth-child(3) {
+  ${GridContainer}:nth-child(3) {
     grid-area: side;
   }
 `
 
 const GridThreeMosaic = styled(Grid)`
-  grid-template-rows: 450px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 30vw;
+  grid-template-columns: repeat(3, 1fr);
 `
 
 const GridFourSquares = styled(Grid)`
-  grid-template-rows: repeat(3, 450px);
+  grid-template-rows: repeat(3, 31vw);
   grid-template-columns: ${props =>
-    props.position === 'left'
-      ? 'minmax(300px, 30%) auto'
-      : 'auto minmax(300px, 30%)'};
+    props.position === 'left' ? '31vw auto' : 'auto 31vw'};
   grid-template-areas: ${props =>
     props.position === 'left'
       ? '"square1 side" "square2 side" "square3 side"'
       : '"side square1" "side square2" "side square3"'};
 
-  img:nth-child(1) {
+  ${GridContainer}:nth-child(1) {
     grid-area: square1;
   }
-  img:nth-child(2) {
+  ${GridContainer}:nth-child(2) {
     grid-area: square2;
   }
-  img:nth-child(3) {
+  ${GridContainer}:nth-child(3) {
     grid-area: square3;
   }
-  img:nth-child(4) {
+  ${GridContainer}:nth-child(4) {
     grid-area: side;
   }
 `
@@ -104,10 +105,10 @@ export const OneSquare = ({ images, position }) => {
   return (
     <GridOneSquare position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridOneSquare>
   )
@@ -117,10 +118,10 @@ export const OneFull = ({ images, position }) => {
   return (
     <GridOneFull position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridOneFull>
   )
@@ -130,10 +131,10 @@ export const TwoSquarePortrait = ({ images, position }) => {
   return (
     <GridTwoSquarePortrait position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridTwoSquarePortrait>
   )
@@ -142,10 +143,10 @@ export const TwoLandscapePortrait = ({ images, position }) => {
   return (
     <GridTwoLandscapePortrait position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridTwoLandscapePortrait>
   )
@@ -154,10 +155,10 @@ export const ThreeSquares = ({ images, position }) => {
   return (
     <GridThreeSquares position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridThreeSquares>
   )
@@ -166,10 +167,10 @@ export const ThreeMosaic = ({ images, position }) => {
   return (
     <GridThreeMosaic position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridThreeMosaic>
   )
@@ -178,10 +179,10 @@ export const FourSquares = ({ images, position }) => {
   return (
     <GridFourSquares position={position}>
       {images.map((img, index) => (
-        <React.Fragment>
-          <Image key={index} src={img.src} alt={img.alt} />
+        <GridContainer key={index}>
+          <GridImage src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
-        </React.Fragment>
+        </GridContainer>
       ))}
     </GridFourSquares>
   )
