@@ -40,7 +40,9 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       const nodes = result.data.allJson.edges
-      nodes.forEach(({ node }) => {
+      nodes.forEach(({ node }, index) => {
+        const next =
+          index + 1 < nodes.length ? nodes[index + 1].node : nodes[0].node
         createPage({
           path: node.fields.slug,
           component: path.resolve('./src/templates/trip.js'),
@@ -49,6 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
             // in page queries as GraphQL variables.
             slug: node.fields.slug,
             id: node.id,
+            next: next.id,
           },
         })
       })
