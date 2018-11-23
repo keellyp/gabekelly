@@ -8,12 +8,13 @@ import Layout from '../components/Layout'
 import TripHeader from '../components/TripHeader'
 import TripContent from '../components/TripContent'
 import * as Grids from '../components/TripGallery'
+import TripFooter from '../components/TripFooter'
 
 export default class trip extends Component {
   constructor(props) {
     super(props)
     this._grids = []
-    this._galleries = this.props.data.json.content.gallery
+    this._galleries = this.props.data.currentItem.content.gallery
   }
 
   _loopIntoGalleries() {
@@ -98,40 +99,39 @@ export default class trip extends Component {
       <React.Fragment>
         <Layout>
           <Metatags
-            title={`${datas.site.siteMetadata.siteTitle} - ${datas.json.title}`}
-            description={datas.json.meta_description}
-            thumbnail={url + datas.json.meta_thumbnail}
+            title={`${datas.site.siteMetadata.siteTitle} - ${
+              datas.currentItem.title
+            }`}
+            description={datas.currentItem.meta_description}
+            thumbnail={url + datas.currentItem.meta_thumbnail}
             url={url}
           />
 
           <TripHeader
-            tag={datas.json.tag}
-            title={datas.json.title}
-            date_month={datas.json.date_month}
-            data_year={datas.json.data_year}
-            cover={datas.json.cover}
+            tag={datas.currentItem.tag}
+            title={datas.currentItem.title}
+            date_month={datas.currentItem.date_month}
+            data_year={datas.currentItem.data_year}
+            cover={datas.currentItem.cover}
           />
-          <TripContent content={datas.json.content} />
-          <Container>{this._grids}</Container>
+          <TripContent content={datas.currentItem.content}>
+            {this._grids}
+          </TripContent>
+          <TripFooter next={datas.nextItem} />
         </Layout>
       </React.Fragment>
     )
   }
 }
 
-const Container = styled.div`
-  width: 95%;
-  margin: auto;
-`
-
 export const pageQuery = graphql`
-  query TripQuery($id: String!) {
+  query TripQuery($id: String!, $next: String!) {
     site {
       siteMetadata {
         siteTitle
       }
     }
-    json(id: { eq: $id }) {
+    currentItem: json(id: { eq: $id }) {
       title
       tag
       data_year
@@ -157,6 +157,16 @@ export const pageQuery = graphql`
             position
           }
         }
+      }
+    }
+    nextItem: json(id: { eq: $next }) {
+      title
+      cover {
+        alt
+        src
+      }
+      fields {
+        slug
       }
     }
   }
