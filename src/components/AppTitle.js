@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import * as colors from '../utils/colors'
 
@@ -12,6 +13,13 @@ const AppTitle = ({ title, index, currentTrip, click }) => {
 }
 
 export default AppTitle
+
+AppTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  currentTrip: PropTypes.number.isRequired,
+  click: PropTypes.func.isRequired,
+}
 
 const Title = styled.h1`
   color: ${colors.black};

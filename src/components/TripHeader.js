@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import * as colors from '../utils/colors'
 
@@ -19,6 +20,14 @@ const TripHeader = ({ tag, title, date_month, data_year, cover }) => {
 }
 
 export default TripHeader
+
+TripHeader.propTypes = {
+  tag: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date_month: PropTypes.string.isRequired,
+  data_year: PropTypes.number.isRequired,
+  cover: PropTypes.object.isRequired,
+}
 
 const Header = styled.div`
   display: flex;

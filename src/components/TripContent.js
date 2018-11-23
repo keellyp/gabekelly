@@ -1,18 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import * as colors from '../utils/colors'
-
-const TripContent = ({ content }) => {
+const TripContent = ({ content, children }) => {
   return (
-    <ContentContainer>
-      <Title>{content.title}</Title>
-      <Content>{content.text}</Content>
-    </ContentContainer>
+    <React.Fragment>
+      <ContentContainer>
+        <Title>{content.title}</Title>
+        <Content>{content.text}</Content>
+      </ContentContainer>
+      <GalleriesContainer>{children}</GalleriesContainer>
+    </React.Fragment>
   )
 }
 
 export default TripContent
+
+TripContent.propTypes = {
+  content: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+}
 
 const ContentContainer = styled.div`
   margin: 250px 18% 220px auto;
@@ -29,4 +36,9 @@ const Title = styled.h2`
 const Content = styled.p`
   font-size: 1em;
   line-height: 1.9em;
+`
+
+const GalleriesContainer = styled.div`
+  width: 95%;
+  margin: auto;
 `

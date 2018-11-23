@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const AppCover = ({ cover, index, currentTrip }) => {
   return (
@@ -13,6 +14,12 @@ const AppCover = ({ cover, index, currentTrip }) => {
 }
 
 export default AppCover
+
+AppCover.propTypes = {
+  cover: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  currentTrip: PropTypes.number.isRequired,
+}
 
 const Cover = styled.img`
   width: 100%;

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 
 import * as colors from '../utils/colors'
 
@@ -19,6 +20,10 @@ class TripFooter extends React.Component {
 }
 
 export default TripFooter
+
+TripFooter.propTypes = {
+  next: PropTypes.obj.isRequired,
+}
 
 const FooterCover = styled.div`
   position: relative;
