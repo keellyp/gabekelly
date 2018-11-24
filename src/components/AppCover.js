@@ -16,7 +16,10 @@ const AppCover = ({ cover, index, currentTrip }) => {
 export default AppCover
 
 AppCover.propTypes = {
-  cover: PropTypes.object.isRequired,
+  cover: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
   index: PropTypes.number.isRequired,
   currentTrip: PropTypes.number.isRequired,
 }

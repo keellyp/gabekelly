@@ -26,7 +26,10 @@ TripHeader.propTypes = {
   title: PropTypes.string.isRequired,
   date_month: PropTypes.string.isRequired,
   data_year: PropTypes.number.isRequired,
-  cover: PropTypes.object.isRequired,
+  cover: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 const Header = styled.div`

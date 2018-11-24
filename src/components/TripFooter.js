@@ -22,7 +22,16 @@ class TripFooter extends React.Component {
 export default TripFooter
 
 TripFooter.propTypes = {
-  next: PropTypes.obj.isRequired,
+  next: PropTypes.shape({
+    fields: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+    cover: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 const FooterCover = styled.div`
