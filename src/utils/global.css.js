@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import { withPrefix } from 'gatsby'
 
+import * as colors from './colors'
+import { device } from './breakpoints'
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: Maison Neue;
@@ -51,7 +54,11 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-size: 1.25em;
     line-height: 1.4;
-    color: #000; 
-    background-color: #f2f2f2;
+    background-color: ${colors.greyLight};
+    color: ${colors.black};
+
+    @media ${device.mobile} {
+      font-size: 0.8em;
+    }
   }
 `
