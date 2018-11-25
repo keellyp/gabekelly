@@ -6,12 +6,12 @@ import { GlobalStyle } from '../utils/global.css'
 import Header from './Header'
 import Head from './Head'
 
-const Layout = ({ data, children }) => {
+const Layout = ({ data, children, isDark }) => {
   return (
     <React.Fragment>
       <Head data={data} />
       <GlobalStyle />
-      <Header />
+      <Header isDark={isDark} />
       {children}
     </React.Fragment>
   )
@@ -20,6 +20,7 @@ const Layout = ({ data, children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.object.isRequired,
+  isDark: PropTypes.bool,
 }
 
 const LayoutWithQuery = props => {

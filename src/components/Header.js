@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import * as colors from '../utils/colors'
@@ -18,18 +19,30 @@ export default class Header extends Component {
         {this.state.isOpen ? (
           <Menu>
             <MenuList>
-              <li>
-                <MenuListItem>Travels</MenuListItem>
+              <li onClick={this.toggleMenu}>
+                <MenuListItem>
+                  <Link to="/">Travels</Link>
+                </MenuListItem>
               </li>
-              <li>
-                <MenuListItem>About us</MenuListItem>
+              <li onClick={this.toggleMenu}>
+                <MenuListItem>
+                  <Link to="/about">About us</Link>
+                </MenuListItem>
               </li>
             </MenuList>
           </Menu>
         ) : null}
         <BurgerMenu onClick={this.toggleMenu}>
-          <Line isOpen={this.state.isOpen} className="line--left" />
-          <Line isOpen={this.state.isOpen} className="line--right" />
+          <Line
+            isOpen={this.state.isOpen}
+            isDark={this.props.isDark}
+            className="line--left"
+          />
+          <Line
+            isOpen={this.state.isOpen}
+            isDark={this.props.isDark}
+            className="line--right"
+          />
         </BurgerMenu>
       </React.Fragment>
     )
@@ -59,7 +72,8 @@ const Line = styled.span`
   display: block;
 
   margin-top: 10px;
-  background-color: ${props => (props.isOpen ? colors.white : colors.black)};
+  background-color: ${props =>
+    props.isOpen || props.isDark ? colors.white : colors.black};
 
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 
