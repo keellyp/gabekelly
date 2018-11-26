@@ -57,8 +57,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${colors.greyLight};
     color: ${colors.black};
 
-    @media ${device.mobile} {
-      font-size: 0.8em;
+    @media ${device.tabletLandscape} {
+      font-size: 1em;
     }
   }
 `

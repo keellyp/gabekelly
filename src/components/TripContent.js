@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { device } from '../utils/breakpoints'
+
 const TripContent = ({ content, children }) => {
   return (
     <React.Fragment>
@@ -25,8 +27,13 @@ TripContent.propTypes = {
 }
 
 const ContentContainer = styled.div`
-  margin: 250px 18% 220px auto;
+  margin: 12.5em 18% 11em auto;
   width: 36%;
+
+  @media ${device.tablet} {
+    margin: 4em auto 6em auto;
+    width: 95%;
+  }
 `
 
 const Title = styled.h2`

@@ -112,7 +112,7 @@ OneSquare.propTypes = OneFull.propTypes = TwoSquarePortrait.propTypes = TwoLands
 const Grid = styled.div`
   display: grid;
   grid-gap: 2vw;
-  margin: 20px 0;
+  margin-bottom: 1em;
 `
 
 const GridContainer = styled.div`
