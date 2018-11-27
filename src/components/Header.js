@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import * as colors from '../utils/colors'
+import { device } from '../utils/breakpoints'
 
 export default class Header extends Component {
   state = {
@@ -138,5 +139,9 @@ const MenuListItem = styled.span`
   &:hover::before {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  @media ${device.tablet} {
+    font-size: 6em;
   }
 `
