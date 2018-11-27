@@ -12,7 +12,6 @@ class index extends Component {
   constructor(props) {
     super(props)
     this._trips = []
-    this._body = document.body
     this._isScrolling = false
     this._lethargy = new Lethargy()
   }
@@ -45,30 +44,33 @@ class index extends Component {
   }
 
   _removeEventListener() {
-    this._body.removeEventListener(
+    document.body.removeEventListener(
       'mousewheel',
       this._scrollEventListener.bind(this)
     )
-    this._body.removeEventListener(
+    document.body.removeEventListener(
       'DOMMouseScroll',
       this._scrollEventListener.bind(this)
     )
-    this._body.removeEventListener(
+    document.body.removeEventListener(
       'wheel',
       this._scrollEventListener.bind(this)
     )
   }
 
   _setupEventListener() {
-    this._body.addEventListener(
+    document.body.addEventListener(
       'mousewheel',
       this._scrollEventListener.bind(this)
     )
-    this._body.addEventListener(
+    document.body.addEventListener(
       'DOMMouseScroll',
       this._scrollEventListener.bind(this)
     )
-    this._body.addEventListener('wheel', this._scrollEventListener.bind(this))
+    document.body.addEventListener(
+      'wheel',
+      this._scrollEventListener.bind(this)
+    )
   }
 
   _scrollEventListener(e) {
