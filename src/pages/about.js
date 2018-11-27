@@ -1,46 +1,48 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import * as colors from '../utils/colors'
+import { device } from '../utils/breakpoints'
 
 import Layout from '../components/Layout'
 
+import { datas } from '../datas'
+
 class about extends Component {
   render() {
+    const { about } = datas
     return (
       <React.Fragment>
         <Layout isDark={true}>
           <Container>
             <MainTitle>
-              <span>TRAVELERS & DEVELOPERS</span>
+              <span>{about.title}</span>
             </MainTitle>
             <Content>
-              <Image src="/img/aboutus.jpg" alt="about us" />
-              <Intro>
-                You love having a second home but the mortgage is putting a
-                crater in your wallet. Many second home owners turn to renting
-                their property as a vacation rental to help defray the costs of
-                ownership. How do you price a vacation home rental without
-                overcharging but making enough to cover your costs? Do your
-                research.
-              </Intro>
-              <Baseline>Freelancers . Globe trotters . Frenchies</Baseline>
+              <Image src={about.image.src} alt={about.image.alt} />
+              <Intro>{about.intro}</Intro>
+              <Baseline>{about.baseline}</Baseline>
               <List>
                 <ListItem>
                   <b>socials</b>
-                  <span>@keellyp</span>
-                  <span>@gabrielstik</span>
+                  {about.socials.map((el, i) => (
+                    <a title={el.alt} href={el.src} target="_blank" key={i}>
+                      <span>{el.alt}</span>
+                    </a>
+                  ))}
                 </ListItem>
                 <ListItem>
                   <b>site web</b>
-                  <span>kellyphan.fr</span>
-                  <span>gabrielstik.fr</span>
+                  {about.website.map((el, i) => (
+                    <a title={el.alt} href={el.src} target="_blank" key={i}>
+                      <span>{el.alt}</span>
+                    </a>
+                  ))}
                 </ListItem>
                 <ListItem>
                   <b>contact</b>
-                  <span>tvk.phan@gmail.com</span>
-                  <span>gabriel.stik@gmail.com</span>
+                  {about.contact.map((el, i) => (
+                    <span key={i}>{el.alt}</span>
+                  ))}
                 </ListItem>
               </List>
             </Content>
@@ -53,12 +55,9 @@ class about extends Component {
 export default about
 
 const Container = styled.section`
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+  overflow-x: hidden;
 
-  color: ${colors.greyLight};
-  background-color: ${colors.blackLight};
+  padding-top: 40vh;
 `
 
 const MainTitle = styled.h1`
@@ -73,11 +72,35 @@ const MainTitle = styled.h1`
 
     font-weight: 400;
     font-size: 8.2em;
+
+    text-transform: uppercase;
+
+    @media ${device.tabletLandscape} {
+      font-size: 6.2em;
+    }
+
+    @media ${device.tablet} {
+      font-size: 3.2em;
+    }
+  }
+
+  @media ${device.tablet} {
+    margin-left: 5%;
   }
 `
 
 const Content = styled.div`
-  margin: 4em 30% 0 20%;
+  margin: 4em 12% 0 33%;
+
+  @media ${device.smallDesktop} {
+    margin-left: 12%;
+    margin-right: 20;
+  }
+
+  @media ${device.tablet} {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `
 
 const Image = styled.img`
@@ -97,32 +120,39 @@ const Baseline = styled.h2`
 
   font-weight: 600;
   font-size: 2.4em;
-  color: ${colors.white};
 `
 
 const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 20px;
+  grid-gap: 20px;
+
+  margin-bottom: 30vh;
+
+  @media ${device.mobile} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 const ListItem = styled.li`
-  margin-bottom: 30vh;
-
-  * {
+  b {
     display: block;
+    padding-bottom: 0.5em;
 
     font-size: 1.2em;
     line-height: 1.2em;
-  }
-
-  b {
-    padding-bottom: 0.5em;
-
     font-weight: 600;
+
+    user-select: none;
   }
 
   span {
+    display: block;
     padding-bottom: 0.2em;
+
+    font-size: 1.2em;
+    line-height: 1.2em;
+
+    cursor: pointer;
   }
 `
