@@ -10,7 +10,7 @@ const Layout = ({ data, children, isDark }) => {
   return (
     <React.Fragment>
       <Head data={data} />
-      <GlobalStyle />
+      <GlobalStyle isDark={isDark} />
       <Header isDark={isDark} />
       {children}
     </React.Fragment>

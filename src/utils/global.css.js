@@ -54,8 +54,9 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-size: 1.25em;
     line-height: 1.4;
-    background-color: ${colors.greyLight};
-    color: ${colors.black};
+    background-color: ${props =>
+    props.isDark ? colors.blackLight : colors.greyLight};
+    color: ${props => (props.isDark ? colors.greyLight : colors.black)};
 
     @media ${device.tabletLandscape} {
       font-size: 1em;
