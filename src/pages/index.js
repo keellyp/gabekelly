@@ -11,18 +11,21 @@ const Lethargy = require('exports-loader?this.Lethargy!lethargy/lethargy')
 class index extends Component {
   constructor(props) {
     super(props)
-    this._trips = []
-    this._isScrolling = false
+    this._trips = this._getTrips()
+
     this._lethargy = new Lethargy()
+    this._isScrolling = false
+
+    this._titles = React.createRef()
   }
 
   state = {
+    isCurrent: false,
     currentTrip: 2,
     totalTrip: this.props.data.allJson.edges.length,
   }
 
   componentDidMount() {
-    this._getTrips()
     this._allowScroll('hidden')
     this._setupEventListener()
   }
@@ -33,10 +36,12 @@ class index extends Component {
   }
 
   _getTrips() {
+    const array = []
     const trips = this.props.data.allJson.edges
     for (let i = 0; i < trips.length; i++) {
-      this._trips.push(trips[i].node.title)
+      array.push(trips[i].node)
     }
+    return array
   }
 
   _allowScroll(value) {
@@ -94,6 +99,7 @@ class index extends Component {
 
   _scrollToNext() {
     this._clear()
+    this._updateOrder('next')
     if (this.state.currentTrip + 1 < this.state.totalTrip) {
       this.setState({ currentTrip: this.state.currentTrip + 1 })
     } else {
@@ -103,6 +109,7 @@ class index extends Component {
 
   _scrollToPrev() {
     this._clear()
+    this._updateOrder('prev')
     if (this.state.currentTrip - 1 >= 0) {
       this.setState({ currentTrip: this.state.currentTrip - 1 })
     } else {
@@ -110,8 +117,22 @@ class index extends Component {
     }
   }
 
-  _handleClick = param => e => {
-    this.setState({ currentTrip: param })
+  _updateOrder(arg) {
+    const newTrips = [...this._trips]
+    switch (arg) {
+      case 'next':
+        const first = 0
+        newTrips.splice(first, 1)
+        this._trips = [...newTrips, this._trips[first]]
+        break
+      case 'prev':
+        const last = this._trips.length - 1
+        newTrips.splice(last, 1)
+        this._trips = [this._trips[last], ...newTrips]
+        break
+      default:
+        break
+    }
   }
 
   render() {
@@ -120,14 +141,13 @@ class index extends Component {
       <React.Fragment>
         <Layout>
           <Container>
-            <TitleContainer>
-              {posts.map((post, index) => (
+            <TitleContainer ref={this._titles}>
+              {this._trips.map((post, index) => (
                 <AppTitle
                   key={index}
-                  title={post.node.title}
                   index={index}
+                  title={post.title}
                   currentTrip={this.state.currentTrip}
-                  click={this._handleClick(index)}
                 />
               ))}
             </TitleContainer>
