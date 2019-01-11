@@ -32,6 +32,7 @@ const Title = styled.h1`
   letter-spacing: ${props => (props.index === 2 ? '10px' : '6px')};
   line-height: 1em;
   text-transform: uppercase;
+  padding: 0.8em 0;
 
   user-select: none;
 `
