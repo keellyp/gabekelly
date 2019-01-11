@@ -13,6 +13,9 @@ module.exports = {
       },
     },
 
+    // Page transition
+    'gatsby-plugin-transition-link',
+
     // Avoid the browser having to refresh the page.
     'gatsby-plugin-catch-links',
 
