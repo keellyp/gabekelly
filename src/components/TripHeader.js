@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { TimelineLite, Power4 } from 'gsap'
 
 import * as colors from '../utils/colors'
 
 class TripHeader extends React.Component {
+  constructor(props) {
+    super(props)
+    this._maxTabletSize = 600
+
+    this._resizeHandler = this._resizeHandler.bind(this)
+  }
+
   state = {
     isTablet: false,
   }
@@ -19,20 +27,21 @@ class TripHeader extends React.Component {
   }
 
   _setupEventListener() {
-    window.addEventListener('resize', this._resizeHandler.bind(this))
+    window.addEventListener('resize', this._resizeHandler)
   }
 
   _removeEventListener() {
-    window.removeEventListener('resize', this._resizeHandler.bind(this))
+    window.removeEventListener('resize', this._resizeHandler)
   }
 
   _resizeHandler() {
-    const isTablet = window.innerWidth > 600 ? false : true
+    const isTablet = window.innerWidth > this._maxTabletSize ? false : true
     this.setState({ isTablet })
   }
 
   render() {
     const { cover } = this.props
+
     return (
       <React.Fragment>
         {this.state.isTablet ? (
@@ -48,27 +57,64 @@ class TripHeader extends React.Component {
 
 export default TripHeader
 
-const Desktop = ({ tag, title, date_month, data_year }) => (
-  <HeaderDesktop>
-    <HeaderInfo isGrey={false}>{tag}</HeaderInfo>
-    <HeaderTitle>{title}</HeaderTitle>
-    <HeaderInfo isGrey={true}>
-      {date_month} {data_year}
-    </HeaderInfo>
-  </HeaderDesktop>
-)
+class Desktop extends React.Component {
+  constructor(props) {
+    super(props)
+    this.transitionText = React.createRef()
+  }
 
-const Mobile = ({ tag, title, date_month, data_year }) => (
-  <HeaderMobile>
-    <HeaderTitle>{title}</HeaderTitle>
-    <HeaderSubtitle>
-      {tag},{' '}
-      <span>
-        {date_month} {data_year}
-      </span>
-    </HeaderSubtitle>
-  </HeaderMobile>
-)
+  componentDidMount() {
+    this.onEnterAnimation()
+  }
+
+  onEnterAnimation() {
+    const nodes = [].slice.call(this.transitionText.children)
+    const timeline = new TimelineLite()
+    timeline.staggerFromTo(
+      nodes,
+      0.4,
+      { y: '100%', opacity: 0 },
+      { y: '0%', opacity: 1, ease: Power4.easeIn },
+      0.15,
+      0
+    )
+  }
+
+  render() {
+    const { tag, title, date_month, data_year } = this.props
+    return (
+      <HeaderDesktop ref={node => (this.transitionText = node)}>
+        <HeaderInfo isGrey={false}>{tag}</HeaderInfo>
+        <HeaderTitle>{title}</HeaderTitle>
+        <HeaderInfo isGrey={true}>
+          {date_month} {data_year}
+        </HeaderInfo>
+      </HeaderDesktop>
+    )
+  }
+}
+
+class Mobile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.transitionText = React.createRef()
+  }
+
+  render() {
+    const { tag, title, date_month, data_year } = this.props
+    return (
+      <HeaderMobile ref={node => (this.transitionText = node)}>
+        <HeaderTitle>{title}</HeaderTitle>
+        <HeaderSubtitle>
+          {tag},{' '}
+          <span>
+            {date_month} {data_year}
+          </span>
+        </HeaderSubtitle>
+      </HeaderMobile>
+    )
+  }
+}
 
 TripHeader.propTypes = {
   tag: PropTypes.string.isRequired,
@@ -81,14 +127,22 @@ TripHeader.propTypes = {
   }).isRequired,
 }
 
-const HeaderDesktop = styled.header`
+// (100vh - AppCoverHeight) / 2 - HeaderInfoHeight - BaseHeaderMarginBottom)
+
+const BaseHeader = styled.header`
+  margin-top: calc(28.5vh - 54px - 1em);
+  margin-bottom: 1em;
+
+  overflow: hidden;
+`
+
+const HeaderDesktop = styled(BaseHeader)`
+  height: 54px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
-
-  margin-top: calc(30vh - 50px - 1em);
-  margin-bottom: 1em;
 
   user-select: none;
 `
@@ -107,11 +161,10 @@ const HeaderTitle = styled.h1`
   letter-spacing: 12px;
   text-transform: uppercase;
 `
-const HeaderMobile = styled.header`
-  width: 95%;
-  margin-top: calc(30vh - 50px - 1em);
+const HeaderMobile = styled(BaseHeader)`
+  width: 85%;
+
   margin-left: auto;
-  margin-bottom: 1em;
   margin-right: auto;
 `
 const HeaderSubtitle = styled.p`
@@ -127,4 +180,6 @@ const HeaderCover = styled.img`
 
   object-fit: cover;
   object-position: center;
+
+  transform: translate(0);
 `
