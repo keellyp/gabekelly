@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { TweenLite, Power4 } from 'gsap'
 
 import * as colors from '../utils/colors'
+import withIntersectionObserver from '../utils/withIntersectionObserver'
 
+// Image lazy loading and reveal
+class Image extends PureComponent {
+  componentDidMount() {
+    TweenLite.set(this.element, { opacity: 0, y: '5%' })
+  }
+
+  componentDidUpdate() {
+    if (this.props.visible) {
+      this.element.src = this.props.src
+      TweenLite.to(this.element, 0.6, {
+        opacity: 1,
+        y: '0%',
+        ease: Power4.easeIn,
+      })
+    }
+  }
+
+  render() {
+    return <GridImage ref={el => (this.element = el)} />
+  }
+}
+
+// Image component with intersection observer
+const ImageWrapper = withIntersectionObserver(Image)
+
+// Config for intersection observer
+const config = {
+  root: document.querySelector('.galleryContainer'),
+  rootMargin: '0px 0px 300px 0px',
+}
+
+// Different style of component for the gallery
 // One square
 export const OneSquare = ({ images, position }) => {
   return (
     <GridOneSquare position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -24,7 +58,7 @@ export const OneFull = ({ images, position }) => {
     <GridOneFull position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -38,7 +72,7 @@ export const TwoSquarePortrait = ({ images, position }) => {
     <GridTwoSquarePortrait position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -52,7 +86,7 @@ export const TwoLandscapePortrait = ({ images, position }) => {
     <GridTwoLandscapePortrait position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -66,7 +100,7 @@ export const ThreeSquares = ({ images, position }) => {
     <GridThreeSquares position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -80,7 +114,7 @@ export const ThreeMosaic = ({ images, position }) => {
     <GridThreeMosaic position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -94,7 +128,7 @@ export const FourSquares = ({ images, position }) => {
     <GridFourSquares position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <GridImage src={img.src} alt={img.alt} />
+          <ImageWrapper config={config} src={img.src} alt={img.alt} />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -135,6 +169,8 @@ const GridImage = styled.img`
 
   object-fit: cover;
   object-position: center;
+
+  cursor: none;
 `
 
 const GridOneSquare = styled(Grid)`
