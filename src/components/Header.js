@@ -51,7 +51,7 @@ export default class Header extends Component {
 }
 
 const BurgerMenu = styled.div`
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 40px;
 
@@ -92,7 +92,7 @@ const Menu = styled.div`
   width: 100vw;
   height: 100vh;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -100,6 +100,7 @@ const Menu = styled.div`
   color: ${colors.white};
 
   z-index: 9;
+  overflow: hidden;
 `
 
 const MenuList = styled.ul`
