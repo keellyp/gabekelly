@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { TimelineLite, Power4 } from 'gsap'
 
 import * as colors from '../utils/colors'
+import { textSplitter, nodelistToArray } from '../utils/helpers'
 
 class TripHeader extends React.Component {
   constructor(props) {
@@ -60,17 +61,25 @@ export default TripHeader
 class Desktop extends React.Component {
   constructor(props) {
     super(props)
-    this.transitionText = React.createRef()
+    this.$title = React.createRef()
+    this.$textContainer = React.createRef()
   }
 
   componentDidMount() {
-    this.onEnterAnimation()
+    this._splitText()
+    this._onEnterAnimation()
   }
 
-  onEnterAnimation() {
-    const nodes = [].slice.call(this.transitionText.children)
-    const timeline = new TimelineLite()
-    timeline.staggerFromTo(
+  _splitText() {
+    textSplitter(this.$title.current)
+    this._letters = nodelistToArray(this.$title.current.childNodes)
+  }
+
+  _onEnterAnimation() {
+    const nodes = nodelistToArray(this.$textContainer.current.childNodes)
+
+    this._timelineEnter = new TimelineLite()
+    this._timelineEnter.staggerFromTo(
       nodes,
       0.4,
       { y: '100%', opacity: 0 },
@@ -78,14 +87,22 @@ class Desktop extends React.Component {
       0.15,
       0
     )
+    this._timelineEnter.staggerFromTo(
+      this._letters,
+      0.4,
+      { y: '100%' },
+      { y: '0%', ease: Power4.easeIn },
+      0.04,
+      0.3
+    )
   }
 
   render() {
     const { tag, title, date_month, data_year } = this.props
     return (
-      <HeaderDesktop ref={node => (this.transitionText = node)}>
+      <HeaderDesktop ref={this.$textContainer}>
         <HeaderInfo isGrey={false}>{tag}</HeaderInfo>
-        <HeaderTitle>{title}</HeaderTitle>
+        <HeaderTitle ref={this.$title}>{title}</HeaderTitle>
         <HeaderInfo isGrey={true}>
           {date_month} {data_year}
         </HeaderInfo>
@@ -97,13 +114,12 @@ class Desktop extends React.Component {
 class Mobile extends React.Component {
   constructor(props) {
     super(props)
-    this.transitionText = React.createRef()
   }
 
   render() {
     const { tag, title, date_month, data_year } = this.props
     return (
-      <HeaderMobile ref={node => (this.transitionText = node)}>
+      <HeaderMobile>
         <HeaderTitle>{title}</HeaderTitle>
         <HeaderSubtitle>
           {tag},{' '}
@@ -128,7 +144,6 @@ TripHeader.propTypes = {
 }
 
 // (100vh - AppCoverHeight) / 2 - HeaderInfoHeight - BaseHeaderMarginBottom)
-
 const BaseHeader = styled.header`
   margin-top: calc(28.5vh - 54px - 1em);
   margin-bottom: 1em;
@@ -160,6 +175,10 @@ const HeaderTitle = styled.h1`
   line-height: 1em;
   letter-spacing: 12px;
   text-transform: uppercase;
+
+  div {
+    display: inline-block;
+  }
 `
 const HeaderMobile = styled(BaseHeader)`
   width: 85%;
