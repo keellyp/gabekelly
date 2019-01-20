@@ -54,6 +54,8 @@ const BurgerMenu = styled.div`
   position: fixed;
   top: 40px;
   left: 40px;
+  width: 40px;
+  height: 40px;
 
   z-index: 10;
   cursor: pointer;

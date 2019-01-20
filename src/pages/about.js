@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { device } from '../utils/breakpoints'
 
-import Layout from '../components/Layout'
+import { Layout } from '../app'
 
 import { datas } from '../datas'
 
@@ -25,7 +25,13 @@ class about extends Component {
                 <ListItem>
                   <b>socials</b>
                   {about.socials.map((el, i) => (
-                    <a title={el.alt} href={el.src} target="_blank" key={i}>
+                    <a
+                      title={el.alt}
+                      href={el.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={i}
+                    >
                       <span>{el.alt}</span>
                     </a>
                   ))}
@@ -33,7 +39,13 @@ class about extends Component {
                 <ListItem>
                   <b>site web</b>
                   {about.website.map((el, i) => (
-                    <a title={el.alt} href={el.src} target="_blank" key={i}>
+                    <a
+                      title={el.alt}
+                      href={el.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={i}
+                    >
                       <span>{el.alt}</span>
                     </a>
                   ))}
