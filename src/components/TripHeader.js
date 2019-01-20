@@ -4,14 +4,22 @@ import PropTypes from 'prop-types'
 import { TimelineLite, Power4 } from 'gsap'
 
 import * as colors from '../utils/colors'
+import { size } from '../utils/breakpoints'
 import { textSplitter, nodelistToArray } from '../utils/helpers'
 
 class TripHeader extends React.Component {
   constructor(props) {
     super(props)
-    this._maxTabletSize = 600
 
+    // Binding
     this._resizeHandler = this._resizeHandler.bind(this)
+
+    // Create variables
+    this._tabletLandscape = size.tabletLandscape
+    this._letters = null
+    this._words = null
+    this._timelineEnter = null
+    this.timelineLeave = null
   }
 
   state = {
@@ -21,10 +29,41 @@ class TripHeader extends React.Component {
   componentDidMount() {
     this._resizeHandler()
     this._setupEventListener()
+
+    this._splitText()
+    this._onEnterAnimation()
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isTablet != prevState.isTablet) {
+      this._splitText()
+      this._onEnterAnimation()
+    }
   }
 
   componentWillUnmount() {
     this._removeEventListener()
+
+    if (this._timelineEnter) {
+      this._timelineEnter.kill()
+    }
+    if (this.timelineLeave) {
+      this.timelineLeave.kill()
+    }
+  }
+
+  // Will be pass by props to footer component
+  // Will be launch before route leave
+  onLeaveAnimation() {
+    this.timelineLeave = new TimelineLite()
+    this.timelineLeave.staggerTo(
+      this.header.$textContainer.current.childNodes,
+      0.3,
+      {
+        y: '100%',
+        opacity: 0,
+      }
+    )
   }
 
   _setupEventListener() {
@@ -36,8 +75,39 @@ class TripHeader extends React.Component {
   }
 
   _resizeHandler() {
-    const isTablet = window.innerWidth > this._maxTabletSize ? false : true
+    const isTablet = window.innerWidth > this._tabletLandscape ? false : true
     this.setState({ isTablet })
+  }
+
+  _splitText() {
+    // First split header text
+    // Then push it in this._letters variable
+    textSplitter(this.header.$title.current)
+    this._letters = nodelistToArray(this.header.$title.current.childNodes)
+  }
+
+  _onEnterAnimation() {
+    this._words = nodelistToArray(this.header.$textContainer.current.childNodes)
+
+    this._timelineEnter = new TimelineLite()
+
+    this._timelineEnter.set(this._words, { y: '100%', opacity: 0 })
+    this._timelineEnter.set(this._letters, { y: '100%' })
+
+    this._timelineEnter.staggerTo(
+      this._words,
+      0.5,
+      { y: '0%', opacity: 1, ease: Power4.easeIn },
+      0.15,
+      0
+    )
+    this._timelineEnter.staggerTo(
+      this._letters,
+      0.3,
+      { y: '0%', ease: Power4.easeIn },
+      0.04,
+      0.25
+    )
   }
 
   render() {
@@ -46,9 +116,9 @@ class TripHeader extends React.Component {
     return (
       <React.Fragment>
         {this.state.isTablet ? (
-          <Mobile {...this.props} />
+          <Mobile {...this.props} ref={node => (this.header = node)} />
         ) : (
-          <Desktop {...this.props} />
+          <Desktop {...this.props} ref={node => (this.header = node)} />
         )}
         <HeaderCover src={cover.src} alt={cover.alt} />
       </React.Fragment>
@@ -58,69 +128,30 @@ class TripHeader extends React.Component {
 
 export default TripHeader
 
-class Desktop extends React.Component {
-  constructor(props) {
-    super(props)
-    this.$title = React.createRef()
-    this.$textContainer = React.createRef()
-  }
-
-  componentDidMount() {
-    this._splitText()
-    this._onEnterAnimation()
-  }
-
-  _splitText() {
-    textSplitter(this.$title.current)
-    this._letters = nodelistToArray(this.$title.current.childNodes)
-  }
-
-  _onEnterAnimation() {
-    const nodes = nodelistToArray(this.$textContainer.current.childNodes)
-
-    this._timelineEnter = new TimelineLite()
-    this._timelineEnter.staggerFromTo(
-      nodes,
-      0.4,
-      { y: '100%', opacity: 0 },
-      { y: '0%', opacity: 1, ease: Power4.easeIn },
-      0.15,
-      0
-    )
-    this._timelineEnter.staggerFromTo(
-      this._letters,
-      0.4,
-      { y: '100%' },
-      { y: '0%', ease: Power4.easeIn },
-      0.04,
-      0.3
-    )
-  }
-
-  render() {
-    const { tag, title, date_month, data_year } = this.props
-    return (
-      <HeaderDesktop ref={this.$textContainer}>
-        <HeaderInfo isGrey={false}>{tag}</HeaderInfo>
-        <HeaderTitle ref={this.$title}>{title}</HeaderTitle>
-        <HeaderInfo isGrey={true}>
-          {date_month} {data_year}
-        </HeaderInfo>
-      </HeaderDesktop>
-    )
-  }
+TripHeader.propTypes = {
+  tag: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date_month: PropTypes.string.isRequired,
+  data_year: PropTypes.number.isRequired,
+  cover: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 class Mobile extends React.Component {
   constructor(props) {
     super(props)
+
+    this.$title = React.createRef()
+    this.$textContainer = React.createRef()
   }
 
   render() {
     const { tag, title, date_month, data_year } = this.props
     return (
-      <HeaderMobile>
-        <HeaderTitle>{title}</HeaderTitle>
+      <HeaderMobile ref={this.$textContainer}>
+        <HeaderTitle ref={this.$title}>{title}</HeaderTitle>
         <HeaderSubtitle>
           {tag},{' '}
           <span>
@@ -132,15 +163,27 @@ class Mobile extends React.Component {
   }
 }
 
-TripHeader.propTypes = {
-  tag: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date_month: PropTypes.string.isRequired,
-  data_year: PropTypes.number.isRequired,
-  cover: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-  }).isRequired,
+class Desktop extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.$title = React.createRef()
+    this.$textContainer = React.createRef()
+  }
+
+  render() {
+    const { tag, title, date_month, data_year } = this.props
+
+    return (
+      <HeaderDesktop ref={this.$textContainer}>
+        <HeaderInfo isGrey={false}>{tag}</HeaderInfo>
+        <HeaderTitle ref={this.$title}>{title}</HeaderTitle>
+        <HeaderInfo isGrey={true}>
+          {date_month} {data_year}
+        </HeaderInfo>
+      </HeaderDesktop>
+    )
+  }
 }
 
 // (100vh - AppCoverHeight) / 2 - HeaderInfoHeight - BaseHeaderMarginBottom)
@@ -162,22 +205,27 @@ const HeaderDesktop = styled(BaseHeader)`
   user-select: none;
 `
 const HeaderInfo = styled.span`
+  height: 100%;
   flex: 1;
 
   font-size: 1em;
   color: ${props => (props.isGrey ? colors.grey : colors.black)};
+
+  line-height: 54px;
+  will-change: transform;
 `
 const HeaderTitle = styled.h1`
   flex: 2;
 
   font-weight: 600;
-  font-size: 4em;
+  font-size: 3.8em;
   line-height: 1em;
   letter-spacing: 12px;
   text-transform: uppercase;
 
   div {
     display: inline-block;
+    will-change: transform;
   }
 `
 const HeaderMobile = styled(BaseHeader)`
@@ -188,6 +236,7 @@ const HeaderMobile = styled(BaseHeader)`
 `
 const HeaderSubtitle = styled.p`
   color: ${colors.grey};
+  will-change: transform;
 
   span {
     font-style: italic;

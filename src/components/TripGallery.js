@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { TweenLite, Power4 } from 'gsap'
@@ -7,20 +7,28 @@ import * as colors from '../utils/colors'
 import withIntersectionObserver from '../utils/withIntersectionObserver'
 
 // Image lazy loading and reveal
-class Image extends PureComponent {
+class Image extends React.Component {
   componentDidMount() {
     TweenLite.set(this.element, { opacity: 0, y: '5%' })
   }
 
+  shouldComponentUpdate(nextProps) {
+    return nextProps.visible !== this.props.visible
+  }
+
   componentDidUpdate() {
     if (this.props.visible) {
-      this.element.src = this.props.src
-      TweenLite.to(this.element, 0.6, {
-        opacity: 1,
-        y: '0%',
-        ease: Power4.easeIn,
-      })
+      this._isVisible()
     }
+  }
+
+  _isVisible() {
+    this.element.src = this.props.src
+    TweenLite.to(this.element, 0.6, {
+      opacity: 1,
+      y: '0%',
+      ease: Power4.easeIn,
+    })
   }
 
   render() {

@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 
+import { Layout, TripHeader, TripContent, TripFooter } from '../app'
 import { Metatags } from '../components/Head'
-import Layout from '../components/Layout'
-
-import TripHeader from '../components/TripHeader'
-import TripContent from '../components/TripContent'
 import * as Grids from '../components/TripGallery'
-import TripFooter from '../components/TripFooter'
+
+import withIntersectionObserver from '../utils/withIntersectionObserver'
+
+const Footer = withIntersectionObserver(TripFooter)
 
 export default class trip extends Component {
   constructor(props) {
@@ -17,72 +16,69 @@ export default class trip extends Component {
     this._galleries = this.props.data.currentItem.content.gallery
   }
 
+  componentDidMount() {}
+
   _loopIntoGalleries() {
-    this._galleries.map(el => {
+    this._grids = []
+
+    this._galleries.forEach(el => {
       switch (el.type) {
       case '1-full':
-        this._grids.push(
+        return this._grids.push(
           <Grids.OneFull
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '1-square':
-        this._grids.push(
+        return this._grids.push(
           <Grids.OneSquare
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '2-landscape-portrait':
-        this._grids.push(
+        return this._grids.push(
           <Grids.TwoLandscapePortrait
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '2-square-portrait':
-        this._grids.push(
+        return this._grids.push(
           <Grids.TwoSquarePortrait
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '3-mosaic':
-        this._grids.push(
+        return this._grids.push(
           <Grids.ThreeMosaic
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '3-squares':
-        this._grids.push(
+        return this._grids.push(
           <Grids.ThreeSquares
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       case '4-squares':
-        this._grids.push(
+        return this._grids.push(
           <Grids.FourSquares
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
-        break
       default:
         break
       }
@@ -106,18 +102,31 @@ export default class trip extends Component {
             thumbnail={url + datas.currentItem.meta_thumbnail}
             url={url}
           />
-
-          <TripHeader
-            tag={datas.currentItem.tag}
-            title={datas.currentItem.title}
-            date_month={datas.currentItem.date_month}
-            data_year={datas.currentItem.data_year}
-            cover={datas.currentItem.cover}
-          />
-          <TripContent content={datas.currentItem.content}>
-            {this._grids}
-          </TripContent>
-          <TripFooter next={datas.nextItem} />
+          <div>
+            <TripHeader
+              tag={datas.currentItem.tag}
+              title={datas.currentItem.title}
+              date_month={datas.currentItem.date_month}
+              data_year={datas.currentItem.data_year}
+              cover={datas.currentItem.cover}
+              ref={node => (this.tripHeader = node)}
+            />
+            <TripContent
+              content={datas.currentItem.content}
+              className="galleryContainer"
+            >
+              {this._grids}
+            </TripContent>
+            <Footer
+              next={datas.nextItem}
+              className="footer"
+              config={{
+                root: document.querySelector('.footer'),
+                rootMargin: '0px 0px 200px 0px',
+              }}
+              beforeLeave={() => this.tripHeader.onLeaveAnimation()}
+            />
+          </div>
         </Layout>
       </React.Fragment>
     )
