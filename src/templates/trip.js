@@ -16,7 +16,11 @@ export default class trip extends Component {
     this._galleries = this.props.data.currentItem.content.gallery
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (typeof document !== 'undefined') {
+      this.footer.props.config.root = document.body.querySelector('.footer')
+    }
+  }
 
   _loopIntoGalleries() {
     this._grids = []
@@ -118,10 +122,11 @@ export default class trip extends Component {
               {this._grids}
             </TripContent>
             <Footer
+              ref={n => (this.footer = n)}
               next={datas.nextItem}
               className="footer"
               config={{
-                root: document.body.querySelector('.footer'),
+                root: '',
                 rootMargin: '0px 0px 200px 0px',
               }}
               beforeLeave={() => this.tripHeader.onLeaveAnimation()}
