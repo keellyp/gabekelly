@@ -41,7 +41,7 @@ const ImageWrapper = withIntersectionObserver(Image)
 
 // Config for intersection observer
 const config = {
-  root: document.querySelector('.galleryContainer'),
+  root: document.body.querySelector('.galleryContainer'),
   rootMargin: '0px 0px 300px 0px',
 }
 

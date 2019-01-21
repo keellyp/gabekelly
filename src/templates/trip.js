@@ -121,7 +121,7 @@ export default class trip extends Component {
               next={datas.nextItem}
               className="footer"
               config={{
-                root: document.querySelector('.footer'),
+                root: document.body.querySelector('.footer'),
                 rootMargin: '0px 0px 200px 0px',
               }}
               beforeLeave={() => this.tripHeader.onLeaveAnimation()}
