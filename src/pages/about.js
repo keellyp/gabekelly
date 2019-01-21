@@ -3,11 +3,68 @@ import styled from 'styled-components'
 
 import { device } from '../utils/breakpoints'
 
-import { Layout } from '../app'
+import { Layout, AboutContent } from '../app'
 
 import { datas } from '../datas'
 
 class about extends Component {
+  constructor(props) {
+    super(props)
+
+    // Create variable
+    this._bodyHeight = null
+
+    // Create ref
+    this.$title = React.createRef()
+
+    // Bind function
+    this._scrollEventListener = this._scrollEventListener.bind(this)
+  }
+
+  componentDidMount() {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0)
+    })
+
+    this._bodyHeight = document.body.offsetHeight
+    this._setupEventListener()
+  }
+
+  componentWillUnmount() {
+    this._removeEventListener()
+  }
+
+  _setupEventListener() {
+    document.body.addEventListener('mousewheel', this._scrollEventListener)
+    document.body.addEventListener('DOMMouseScroll', this._scrollEventListener)
+    document.body.addEventListener('wheel', this._scrollEventListener)
+  }
+
+  _removeEventListener() {
+    document.body.removeEventListener('mousewheel', this._scrollEventListener)
+    document.body.removeEventListener(
+      'DOMMouseScroll',
+      this._scrollEventListener
+    )
+    document.body.removeEventListener('wheel', this._scrollEventListener)
+  }
+
+  _scrollEventListener() {
+    const windowScroll = window.scrollY
+
+    const minValue = 0
+    const maxValue = 8
+    const multiplier = 70
+
+    const value = Math.min(
+      maxValue * multiplier,
+      Math.max(minValue, windowScroll)
+    )
+    const bindValue = value / multiplier
+
+    this.$title.current.style.transform = `translateX(-${bindValue}em)`
+  }
+
   render() {
     const { about } = datas
     return (
@@ -15,49 +72,9 @@ class about extends Component {
         <Layout isDark={true}>
           <Container>
             <MainTitle>
-              <span>{about.title}</span>
+              <span ref={this.$title}>{about.title}</span>
             </MainTitle>
-            <Content>
-              <Image src={about.image.src} alt={about.image.alt} />
-              <Intro>{about.intro}</Intro>
-              <Baseline>{about.baseline}</Baseline>
-              <List>
-                <ListItem>
-                  <b>socials</b>
-                  {about.socials.map((el, i) => (
-                    <a
-                      title={el.alt}
-                      href={el.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={i}
-                    >
-                      <span>{el.alt}</span>
-                    </a>
-                  ))}
-                </ListItem>
-                <ListItem>
-                  <b>site web</b>
-                  {about.website.map((el, i) => (
-                    <a
-                      title={el.alt}
-                      href={el.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={i}
-                    >
-                      <span>{el.alt}</span>
-                    </a>
-                  ))}
-                </ListItem>
-                <ListItem>
-                  <b>contact</b>
-                  {about.contact.map((el, i) => (
-                    <span key={i}>{el.alt}</span>
-                  ))}
-                </ListItem>
-              </List>
-            </Content>
+            <AboutContent about={about} />
           </Container>
         </Layout>
       </React.Fragment>
@@ -69,7 +86,7 @@ export default about
 const Container = styled.section`
   overflow-x: hidden;
 
-  padding-top: 40vh;
+  padding-top: 50vh;
 `
 
 const MainTitle = styled.h1`
@@ -86,7 +103,8 @@ const MainTitle = styled.h1`
     font-size: 8.2em;
 
     text-transform: uppercase;
-
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
     @media ${device.tabletLandscape} {
       font-size: 6.2em;
     }
@@ -98,73 +116,5 @@ const MainTitle = styled.h1`
 
   @media ${device.tablet} {
     margin-left: 5%;
-  }
-`
-
-const Content = styled.div`
-  margin: 4em 12% 0 33%;
-
-  @media ${device.smallDesktop} {
-    margin-left: 12%;
-    margin-right: 20;
-  }
-
-  @media ${device.tablet} {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-`
-
-const Image = styled.img`
-  width: 80%;
-  height: auto;
-`
-
-const Intro = styled.p`
-  margin-top: 3.5em;
-
-  font-size: 1.6em;
-  line-height: 2em;
-`
-
-const Baseline = styled.h2`
-  margin: 2.6em 0;
-
-  font-weight: 600;
-  font-size: 2.4em;
-`
-
-const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-
-  margin-bottom: 30vh;
-
-  @media ${device.mobile} {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`
-
-const ListItem = styled.li`
-  b {
-    display: block;
-    padding-bottom: 0.5em;
-
-    font-size: 1.2em;
-    line-height: 1.2em;
-    font-weight: 600;
-
-    user-select: none;
-  }
-
-  span {
-    display: block;
-    padding-bottom: 0.2em;
-
-    font-size: 1.2em;
-    line-height: 1.2em;
-
-    cursor: pointer;
   }
 `
