@@ -9,6 +9,12 @@ import withIntersectionObserver from '../utils/withIntersectionObserver'
 // Image lazy loading and reveal
 class Image extends React.Component {
   componentDidMount() {
+    if (typeof document !== 'undefined') {
+      this.element.props.config.root = document.body.querySelector(
+        '.galleryContainer'
+      )
+    }
+
     TweenLite.set(this.element, { opacity: 0, y: '5%' })
   }
 
@@ -36,7 +42,7 @@ class Image extends React.Component {
       <GridImage
         ref={el => (this.element = el)}
         config={{
-          root: document.body.querySelector('.galleryContainer'),
+          root: '',
           rootMargin: '0px 0px 300px 0px',
         }}
       />
