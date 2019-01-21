@@ -1,5 +1,6 @@
 // Import all components
 
+export { default as AboutContent } from './components/AboutContent'
 export { default as AppCover } from './components/AppCover'
 export { default as AppTitle } from './components/AppTitle'
 export { default as Head } from './components/Head'
