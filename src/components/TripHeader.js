@@ -35,7 +35,7 @@ class TripHeader extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.isTablet != prevState.isTablet) {
+    if (this.state.isTablet !== prevState.isTablet) {
       this._splitText()
       this._onEnterAnimation()
     }
