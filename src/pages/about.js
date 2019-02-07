@@ -38,6 +38,7 @@ class about extends Component {
     document.body.addEventListener('mousewheel', this._scrollEventListener)
     document.body.addEventListener('DOMMouseScroll', this._scrollEventListener)
     document.body.addEventListener('wheel', this._scrollEventListener)
+    document.body.addEventListener('touchmove', this._scrollEventListener)
   }
 
   _removeEventListener() {
@@ -47,13 +48,14 @@ class about extends Component {
       this._scrollEventListener
     )
     document.body.removeEventListener('wheel', this._scrollEventListener)
+    document.body.removeEventListener('touchmove', this._scrollEventListener)
   }
 
   _scrollEventListener() {
     const windowScroll = window.scrollY
 
     const minValue = 0
-    const maxValue = 8
+    const maxValue = 6
     const multiplier = 70
 
     const value = Math.min(
@@ -104,7 +106,8 @@ const MainTitle = styled.h1`
 
     text-transform: uppercase;
     will-change: transform;
-    transition: transform 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: transform 0.05s ease-in-out;
+
     @media ${device.tabletLandscape} {
       font-size: 6.2em;
     }

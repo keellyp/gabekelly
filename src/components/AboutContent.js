@@ -50,7 +50,9 @@ const AboutContent = ({ about }) => {
         <ListItem>
           <b>contact</b>
           {about.contact.map((el, i) => (
-            <Text key={i}>{el.alt}</Text>
+            <div key={i}>
+              <Text>{el.alt}</Text>
+            </div>
           ))}
         </ListItem>
       </List>
