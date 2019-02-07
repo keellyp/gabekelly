@@ -6,34 +6,86 @@ import * as colors from '../utils/colors'
 import { device } from '../utils/breakpoints'
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.$list = React.createRef()
+
+    this.posX = null
+    this.posY = null
+  }
+
   state = {
     isOpen: false,
   }
 
-  toggleMenu = () => {
+  _toggleMenu = () => {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
+  _onMouseEnterHandler = e => {
+    const video = e.currentTarget.nextSibling
+    video.style.opacity = 1
+
+    this._setVideoPosition(video)
+  }
+
+  _onMouseLeaveHandler = e => {
+    const video = e.currentTarget.nextSibling
+    video.style.opacity = 0
+
+    this._setVideoPosition(video)
+  }
+
+  _onMouseMoveHandler = e => {
+    this.posX = e.clientX
+    this.posY = e.clientY
+  }
+
+  _onMouseHoverHandler = e => {
+    this._setVideoPosition(e.currentTarget.nextSibling)
+  }
+
+  _setVideoPosition(video) {
+    this.bindPosX = this.posX - video.offsetWidth / 2
+    this.bindPosY = this.posY - video.offsetHeight / 2
+
+    video.style.transform = `translate(${this.bindPosX}px, ${this.bindPosY}px)`
+  }
+
   render() {
+    const links = [
+      { src: '/', alt: 'Travels', bg: 'travels.mp4' },
+      { src: '/about', alt: 'About us', bg: 'aboutus.mp4' },
+    ]
+
     return (
       <React.Fragment>
         {this.state.isOpen ? (
-          <Menu>
-            <MenuList>
-              <li onClick={this.toggleMenu}>
-                <MenuListItem>
-                  <Link to="/">Travels</Link>
-                </MenuListItem>
-              </li>
-              <li onClick={this.toggleMenu}>
-                <MenuListItem>
-                  <Link to="/about">About us</Link>
-                </MenuListItem>
-              </li>
+          <Menu onMouseMove={this._onMouseMoveHandler}>
+            <MenuList ref={this.$list}>
+              {links.map((el, i) => (
+                <li key={i} onClick={this._toggleMenu}>
+                  <MenuListItem
+                    onMouseEnter={this._onMouseEnterHandler}
+                    onMouseLeave={this._onMouseLeaveHandler}
+                    onMouseMove={this._onMouseHoverHandler}
+                  >
+                    <Link to={el.src}>{el.alt}</Link>
+                  </MenuListItem>
+                  <video
+                    ref={`${this.$video}-${i}`}
+                    src={`/videos/${el.bg}`}
+                    autoPlay
+                    loop
+                    muted
+                  />
+                </li>
+              ))}
             </MenuList>
           </Menu>
         ) : null}
-        <BurgerMenu onClick={this.toggleMenu}>
+        <BurgerMenu onClick={this._toggleMenu}>
           <Line
             isOpen={this.state.isOpen}
             isDark={this.props.isDark}
@@ -98,7 +150,7 @@ const Menu = styled.div`
   top: 0;
   left: 0;
 
-  background-color: ${colors.blackLight};
+  background-color: ${colors.black};
   color: ${colors.white};
 
   z-index: 9;
@@ -106,13 +158,28 @@ const Menu = styled.div`
 `
 
 const MenuList = styled.ul`
+  position: relative;
   height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  margin-left: 40px;
+  li {
+    margin: 3rem 0 3rem 4rem;
+
+    video {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 360px;
+      height: 240px;
+
+      opacity: 0;
+      will-change: opacity, transform;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
 `
 
 const MenuListItem = styled.span`
@@ -121,6 +188,8 @@ const MenuListItem = styled.span`
 
   text-transform: uppercase;
   font-size: 9.25em;
+
+  z-index: 10;
 
   &::before {
     content: '';
