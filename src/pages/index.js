@@ -4,159 +4,47 @@ import styled from 'styled-components'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import { TimelineLite, Power4 } from 'gsap'
 
-import { Layout, AppTitle, AppCover } from '../app'
-
-const Lethargy = require('exports-loader?this.Lethargy!lethargy/lethargy')
+import { Layout } from '../app'
+import * as colors from '../utils/colors'
+import { nodelistToArray } from '../utils/helpers'
 
 class index extends Component {
   constructor(props) {
     super(props)
-    this._trips = this._getTrips()
-
-    this._lethargy = new Lethargy()
-
-    this._isScrolling = false
-
-    this._titles = React.createRef()
-    this.transitionCover = React.createRef()
+    this.backgrounds = React.createRef()
+    this.titles = React.createRef()
   }
 
   state = {
-    isScrolling: false,
-    isCurrent: false,
-    currentTrip: 2,
-    totalTrip: this.props.data.allJson.edges.length,
-  }
-
-  componentDidMount() {
-    this._allowScroll('hidden')
-    this._setupEventListener()
-  }
-
-  componentWillUnmount() {
-    this._allowScroll('auto')
-    this._removeEventListener()
+    hasBackground: false,
+    current: null,
   }
 
   exitAnimation() {
     const height = (window.innerWidth * 9) / 16
+    const top = window.innerHeight / 2 - (21.5 * window.innerHeight) / 100
+    const backgrounds = nodelistToArray(this.backgrounds.current.childNodes)
 
-    const timeline = new TimelineLite()
-    return timeline
-      .to(this.transitionCover, 0.8, {
-        width: '100%',
-        ease: Power4.easeIn,
-      })
-      .to(
-        this.transitionCover,
-        1.2,
-        {
+    if (this.state.current !== null) {
+      const bg = backgrounds[this.state.current]
+      const timeline = new TimelineLite()
+      return timeline
+        .set(bg, { opacity: 1, zIndex: 1 })
+        .set(this.titles.current, { opacity: 0 })
+        .to(bg, 0.5, { y: top, ease: Power4.easeIn })
+        .to(bg, 0.8, {
           height: `${height}px`,
           ease: Power4.easeInOut,
-        },
-        0.6
-      )
-  }
-
-  _getTrips() {
-    const array = []
-    const trips = this.props.data.allJson.edges
-    for (let i = 0; i < trips.length; i++) {
-      array.push(trips[i].node)
-    }
-    return array
-  }
-
-  _allowScroll(value) {
-    document.body.style.overflow = value
-  }
-
-  _setupEventListener() {
-    document.body.addEventListener(
-      'mousewheel',
-      this._scrollEventListener.bind(this)
-    )
-    document.body.addEventListener(
-      'DOMMouseScroll',
-      this._scrollEventListener.bind(this)
-    )
-    document.body.addEventListener(
-      'wheel',
-      this._scrollEventListener.bind(this)
-    )
-  }
-
-  _removeEventListener() {
-    document.body.removeEventListener(
-      'mousewheel',
-      this._scrollEventListener.bind(this)
-    )
-    document.body.removeEventListener(
-      'DOMMouseScroll',
-      this._scrollEventListener.bind(this)
-    )
-    document.body.removeEventListener(
-      'wheel',
-      this._scrollEventListener.bind(this)
-    )
-  }
-
-  _scrollEventListener(e) {
-    e.stopPropagation()
-    if (this._lethargy.check(e) !== false) {
-      if (!this.state.isScrolling) {
-        this.setState({ isScrolling: true })
-        if (this._lethargy.check(e) === -1) {
-          this._scrollToNext()
-        } else if (this._lethargy.check(e) === 1) {
-          this._scrollToPrev()
-        }
-      }
+        })
     }
   }
 
-  _clear() {
-    setTimeout(() => {
-      this.setState({ isScrolling: false })
-    }, 500)
+  _onMouseEnterHandler(i, e) {
+    this.setState({ current: i, hasBackground: true })
   }
 
-  _scrollToNext() {
-    this._clear()
-    this._updateOrder('next')
-    if (this.state.currentTrip + 1 < this.state.totalTrip) {
-      this.setState({ currentTrip: this.state.currentTrip + 1 })
-    } else {
-      this.setState({ currentTrip: 0 })
-    }
-  }
-
-  _scrollToPrev() {
-    this._clear()
-    this._updateOrder('prev')
-    if (this.state.currentTrip - 1 >= 0) {
-      this.setState({ currentTrip: this.state.currentTrip - 1 })
-    } else {
-      this.setState({ currentTrip: this.state.totalTrip - 1 })
-    }
-  }
-
-  _updateOrder(arg) {
-    const newTrips = [...this._trips]
-    switch (arg) {
-      case 'next':
-        const first = 0
-        newTrips.splice(first, 1)
-        this._trips = [...newTrips, this._trips[first]]
-        break
-      case 'prev':
-        const last = this._trips.length - 1
-        newTrips.splice(last, 1)
-        this._trips = [this._trips[last], ...newTrips]
-        break
-      default:
-        break
-    }
+  _onMouseLeaveHandler() {
+    this.setState({ current: null, hasBackground: false })
   }
 
   render() {
@@ -165,37 +53,42 @@ class index extends Component {
       <React.Fragment>
         <Layout>
           <Container>
-            <TitleContainer ref={this._titles}>
-              {this._trips.map((post, index) => (
-                <AppTitle
-                  key={index}
-                  index={index}
-                  title={post.title}
-                  currentTrip={this.state.currentTrip}
+            <div ref={this.backgrounds}>
+              {posts.map((post, i) => (
+                <Background
+                  key={i}
+                  index={i}
+                  current={this.state.current}
+                  style={{
+                    backgroundImage: 'url(' + post.node.cover.src + ')',
+                  }}
                 />
               ))}
-            </TitleContainer>
-            <CoverContainer ref={node => (this.transitionCover = node)}>
-              {posts.map((post, index) => (
-                <TransitionLink
-                  to={post.node.fields.slug}
-                  key={index}
-                  exit={{
-                    length: 2,
-                    trigger: ({ exit }) => this.exitAnimation(exit),
-                  }}
-                  entry={{
-                    delay: 1.6,
-                  }}
+            </div>
+            <Titles ref={this.titles}>
+              {posts.map((post, i) => (
+                <Title
+                  key={i}
+                  hasBackground={this.state.hasBackground}
+                  onMouseEnter={this._onMouseEnterHandler.bind(this, i)}
+                  onMouseLeave={this._onMouseLeaveHandler.bind(this)}
                 >
-                  <AppCover
-                    cover={post.node.cover}
-                    index={index}
-                    currentTrip={this.state.currentTrip}
-                  />
-                </TransitionLink>
+                  <TransitionLink
+                    to={post.node.fields.slug}
+                    exit={{
+                      length: 1.3,
+                      trigger: ({ exit }) => this.exitAnimation(exit),
+                    }}
+                    entry={{
+                      delay: 1.3,
+                    }}
+                  >
+                    {post.node.title}
+                    <span>{post.node.data_year}</span>
+                  </TransitionLink>
+                </Title>
               ))}
-            </CoverContainer>
+            </Titles>
           </Container>
         </Layout>
       </React.Fragment>
@@ -207,36 +100,64 @@ export default index
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+
+  background-color: ${colors.greyLight};
 `
 
-const TitleContainer = styled.div`
+const Background = styled.div`
   position: absolute;
-  top: 50%;
-  left: 5%;
+  top: 0;
+  left: 0;
 
-  width: 35%;
-  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
 
-  text-align: center;
+  background-size: cover;
+  background-position: center;
+
+  opacity: ${props => (props.current === props.index ? 1 : 0)};
+  will-change: opacity;
+  transition: opacity 0.6s ease-in-out;
 `
 
-const CoverContainer = styled.div`
+const Titles = styled.div`
   position: absolute;
-  top: calc(50vh - (43vh / 2));
-  right: 0;
+  top: 30%;
+  left: 4rem;
+  width: 90%;
+`
 
-  width: 55%;
-  height: 43vh;
-  overflow: hidden;
+const Title = styled.h1`
+  position: relative;
+  display: inline-block;
 
-  display: flex;
-  flex-direction: row;
+  padding-right: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
-  a {
-    width: 100%;
-    height: 100%;
+  color: ${colors.white};
+  mix-blend-mode: ${props => (props.hasBackground ? 'overlay' : 'difference')};
 
-    flex-shrink: 0;
+  font-size: 3.8em;
+  font-weight: 400;
+  line-height: 1em;
+
+  user-select: none;
+  transition: mix-blend-mode 0.3s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    mix-blend-mode: color-dodge;
+  }
+
+  span {
+    position: absolute;
+    bottom: calc(90% - 3rem);
+    left: calc(100% - 10rem);
+
+    font-size: 0.2em;
+    line-height: 1em;
   }
 `
 
@@ -253,6 +174,7 @@ export const pageQuery = graphql`
             alt
             src
           }
+          data_year
         }
       }
     }
