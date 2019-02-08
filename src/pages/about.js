@@ -39,6 +39,7 @@ class about extends Component {
     document.body.addEventListener('DOMMouseScroll', this._scrollEventListener)
     document.body.addEventListener('wheel', this._scrollEventListener)
     document.body.addEventListener('touchmove', this._scrollEventListener)
+    document.body.addEventListener('touchstart', this._touchStartEventListener)
   }
 
   _removeEventListener() {
@@ -49,6 +50,10 @@ class about extends Component {
     )
     document.body.removeEventListener('wheel', this._scrollEventListener)
     document.body.removeEventListener('touchmove', this._scrollEventListener)
+    document.body.removeEventListener(
+      'touchstart',
+      this._touchStartEventListener
+    )
   }
 
   _scrollEventListener() {
@@ -66,6 +71,8 @@ class about extends Component {
 
     this.$title.current.style.transform = `translateX(-${bindValue}em)`
   }
+
+  _touchStartEventListener(e) {}
 
   render() {
     const { about } = datas

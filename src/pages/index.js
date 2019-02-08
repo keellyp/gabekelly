@@ -7,6 +7,7 @@ import { TimelineLite, Power4 } from 'gsap'
 import { Layout } from '../app'
 import * as colors from '../utils/colors'
 import { nodelistToArray } from '../utils/helpers'
+import { device } from '../utils/breakpoints'
 
 class index extends Component {
   constructor(props) {
@@ -32,10 +33,15 @@ class index extends Component {
         .set(bg, { opacity: 1, zIndex: 1 })
         .set(this.titles.current, { opacity: 0 })
         .to(bg, 0.5, { y: top, ease: Power4.easeIn })
-        .to(bg, 0.8, {
-          height: `${height}px`,
-          ease: Power4.easeInOut,
-        })
+        .to(
+          bg,
+          0.8,
+          {
+            height: `${height}px`,
+            ease: Power4.easeInOut,
+          },
+          0.3
+        )
     }
   }
 
@@ -76,11 +82,11 @@ class index extends Component {
                   <TransitionLink
                     to={post.node.fields.slug}
                     exit={{
-                      length: 1.3,
+                      length: 1,
                       trigger: ({ exit }) => this.exitAnimation(exit),
                     }}
                     entry={{
-                      delay: 1.3,
+                      delay: 1,
                     }}
                   >
                     {post.node.title}
@@ -123,17 +129,20 @@ const Background = styled.div`
 const Titles = styled.div`
   position: absolute;
   top: 30%;
-  left: 4rem;
+  left: 5%;
   width: 90%;
+
+  @media ${device.smallDesktop} {
+    top: 20%;
+    left: 2rem;
+  }
 `
 
 const Title = styled.h1`
   position: relative;
   display: inline-block;
 
-  padding-right: 10rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 0.39em 1.31em 0.39em 0;
 
   color: ${colors.white};
   mix-blend-mode: ${props => (props.hasBackground ? 'overlay' : 'difference')};
@@ -147,14 +156,22 @@ const Title = styled.h1`
 
   cursor: pointer;
 
+  @media ${device.mobile} {
+    font-size: 2.8em;
+  }
+
+  @media ${device.tablet} {
+    font-size: 3.4em;
+  }
+
   &:hover {
     mix-blend-mode: color-dodge;
   }
 
   span {
     position: absolute;
-    bottom: calc(90% - 3rem);
-    left: calc(100% - 10rem);
+    bottom: calc(90% - 1.95em);
+    left: calc(100% - 6.55em);
 
     font-size: 0.2em;
     line-height: 1em;

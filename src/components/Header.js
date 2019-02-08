@@ -77,8 +77,9 @@ export default class Header extends Component {
                     ref={`${this.$video}-${i}`}
                     src={`/videos/${el.bg}`}
                     autoPlay
-                    loop
                     muted
+                    loop
+                    playsInline
                   />
                 </li>
               ))}
@@ -105,7 +106,7 @@ export default class Header extends Component {
 const BurgerMenu = styled.div`
   position: fixed;
   top: 40px;
-  left: 40px;
+  left: 5%;
   width: 40px;
   height: 40px;
 
@@ -142,6 +143,7 @@ const Line = styled.span`
       props.isOpen ? 'translateY(-7px) rotate(-45deg)' : ''};
   }
 `
+
 const Menu = styled.div`
   width: 100vw;
   height: 100vh;
@@ -166,7 +168,7 @@ const MenuList = styled.ul`
   justify-content: center;
 
   li {
-    margin: 3rem 0 3rem 4rem;
+    margin: 3rem 0 3rem 5%;
 
     video {
       position: absolute;
@@ -214,5 +216,8 @@ const MenuListItem = styled.span`
 
   @media ${device.tablet} {
     font-size: 6em;
+  }
+  @media ${device.mobile} {
+    font-size: 3em;
   }
 `
