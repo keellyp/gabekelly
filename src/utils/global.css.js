@@ -52,14 +52,14 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Maison Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
-    font-size: 1.25em;
+    font-size: 2rem;
     line-height: 1.4;
     background-color: ${props =>
     props.isDark ? colors.blackLight : colors.greyLight};
     color: ${props => (props.isDark ? colors.greyLight : colors.black)};
 
     @media ${device.tabletLandscape} {
-      font-size: 1em;
+      font-size: 1.6rem;
     }
   }
 `

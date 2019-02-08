@@ -88,11 +88,11 @@ export default about
 const Container = styled.section`
   overflow-x: hidden;
 
-  padding-top: 50vh;
+  padding-top: 60vh;
 `
 
 const MainTitle = styled.h1`
-  width: 2000px;
+  width: 2800px;
 
   margin-left: 10%;
 
@@ -102,9 +102,8 @@ const MainTitle = styled.h1`
     display: block;
 
     font-weight: 400;
-    font-size: 8.2em;
+    font-size: 4em;
 
-    text-transform: uppercase;
     will-change: transform;
     transition: transform 0.05s ease-in-out;
 

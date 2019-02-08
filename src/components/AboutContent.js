@@ -114,7 +114,7 @@ const Video = styled.video`
 const Intro = styled.p`
   margin-top: 3.5em;
 
-  font-size: 1.6em;
+  font-size: 1em;
   line-height: 2em;
 `
 
@@ -122,7 +122,7 @@ const Baseline = styled.h2`
   margin: 2.6em 0;
 
   font-weight: 600;
-  font-size: 2.4em;
+  font-size: 1.4em;
 `
 
 const List = styled.ul`
@@ -142,7 +142,7 @@ const ListItem = styled.li`
     display: block;
     margin-bottom: 1.2em;
 
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.2em;
     font-weight: 600;
 
@@ -155,8 +155,6 @@ const Link = styled.a`
   display: block;
 
   cursor: pointer;
-
-  margin-bottom: 0.6em;
 
   :hover {
     span {
@@ -176,8 +174,8 @@ const Text = styled.span`
   display: inline-block;
   padding-bottom: 0.2em;
 
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-size: 0.8em;
+  line-height: 1em;
 
   transition: color 0.3s ease-in-out;
 

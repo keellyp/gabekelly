@@ -218,7 +218,7 @@ const HeaderTitle = styled.h1`
   flex: 2;
 
   font-weight: 600;
-  font-size: 3.8em;
+  font-size: 2em;
   line-height: 1em;
   letter-spacing: 12px;
   text-transform: uppercase;

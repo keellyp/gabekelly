@@ -2,7 +2,7 @@ const path = require('path')
 
 export const datas = {
   about: {
-    title: 'Travelers & Developers',
+    title: 'Developers & Travelers',
     video: {
       src: path.resolve(__dirname, '/videos/us.mp4'),
       alt: 'Gabe & Kelly during FootballWorld Cup 2018',

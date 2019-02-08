@@ -28,7 +28,7 @@ TripContent.propTypes = {
 
 const ContentContainer = styled.div`
   margin: 12.5em 18% 11em auto;
-  width: 36%;
+  width: 45%;
 
   @media ${device.tablet} {
     margin: 4em auto 6em auto;

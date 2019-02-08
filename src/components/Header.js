@@ -186,8 +186,7 @@ const MenuListItem = styled.span`
   position: relative;
   display: inline-block;
 
-  text-transform: uppercase;
-  font-size: 9.25em;
+  font-size: 7.4em;
 
   z-index: 10;
 
