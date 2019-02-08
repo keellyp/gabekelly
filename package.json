@@ -15,7 +15,7 @@
     "gatsby-source-filesystem": "^2.0.2",
     "gatsby-transformer-json": "^2.1.5",
     "gsap": "^2.0.2",
-    "lethargy": "^1.0.4",
+    "intersection-observer": "^0.5.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
