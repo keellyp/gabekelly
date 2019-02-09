@@ -138,12 +138,14 @@ class TripFooter extends React.Component {
           style={{ display: 'block', height: '100%', width: '100%' }}
           to={next.fields.slug}
           exit={{
-            length: 2.1,
+            length: 2.5,
             trigger: () => this._onLeaveAnimation(),
           }}
           entry={{
-            delay: 2.1,
-            trigger: () => (document.body.style.overflow = 'initial'),
+            delay: 2.5,
+            trigger: () => {
+              document.body.style.overflow = 'initial'
+            },
           }}
         >
           <FooterCover src={next.cover.src}>
@@ -226,6 +228,7 @@ const Title = styled.p`
 
   z-index: 1;
   overflow: hidden;
+  will-change: transform;
 
   div {
     display: inline-block;

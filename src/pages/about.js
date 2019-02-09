@@ -49,11 +49,11 @@ class about extends Component {
       this._scrollEventListener
     )
     document.body.removeEventListener('wheel', this._scrollEventListener)
-    document.body.removeEventListener('touchmove', this._scrollEventListener)
     document.body.removeEventListener(
       'touchstart',
       this._touchStartEventListener
     )
+    document.body.removeEventListener('touchmove', this._scrollEventListener)
   }
 
   _scrollEventListener() {
