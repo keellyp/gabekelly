@@ -180,7 +180,7 @@ const Title = styled.h1`
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allJson {
+    allJson(sort: { fields: date, order: DESC }) {
       edges {
         node {
           fields {
