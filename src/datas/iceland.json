@@ -1,6 +1,7 @@
 {
   "title": "Iceland",
   "tag": "Road trip",
+  "date": "2018-02",
   "date_month": "february",
   "data_year": 2018,
   "cover": {
@@ -10,27 +11,27 @@
   "meta_description": "In February, we went to Iceland during a week. We decided to explore South of Iceland by car, through the Ring Road.We stopped multiple times, and we tooked some pictures in the middle of nowhere.",
   "meta_thumbnail": {
     "alt": "Ring road in Iceland",
-    "src": "/img/iceland/thumbnail.jpg"
+    "src": "/img/iceland/cover.jpg"
   },
   "content": {
     "title": "Our trip in Iceland: from Reykjavik to Vatnajokull National Park",
-    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "text": "In our bucket list, one of the top country in our list was Iceland. So in February, we've decided to book a flight from Brussels to Reykjavik to realize our dream. During our landing, the windstorm was so violent that the pilot tried to land twice before succeeded. Eventually, we arrived safe and sound in Keflavik where we rent a car for a week. Then a trip of 800km across multiples cities  started, through beaches, waterfalls, mountains or volcans. We were most of time alone, but it was so nice. We can't wait to go back there again: Iceland is definetly the place to visit.",
     "gallery": [{
         "type": "3-mosaic",
         "position": null,
         "images": [{
             "alt": "Þingvellir National Park",
-            "src": "/img/iceland/1.jpg",
+            "name": "1.jpg",
             "position": "center"
           },
           {
             "alt": "Geysir Strokkur",
-            "src": "/img/iceland/3.jpg",
+            "name": "3.jpg",
             "position": "center"
           },
           {
             "alt": "Geysir Strokkur",
-            "src": "/img/iceland/2.jpg",
+            "name": "2.jpg",
             "position": "center"
           }
         ]
@@ -40,12 +41,12 @@
         "position": "left",
         "images": [{
             "alt": "Sunset at the gas station",
-            "src": "/img/iceland/5.jpg",
+            "name": "5.jpg",
             "position": "center"
           },
           {
             "alt": "Moon rising at Dyrhólaey",
-            "src": "/img/iceland/6.jpg",
+            "name": "6.jpg",
             "position": "center"
           }
         ]
@@ -55,7 +56,7 @@
         "position": null,
         "images": [{
           "alt": "Reynisfjara Beach",
-          "src": "/img/iceland/14.jpg",
+          "name": "14.jpg",
           "position": "center"
         }]
       },
@@ -64,22 +65,22 @@
         "position": "right",
         "images": [{
             "alt": "Quiet place",
-            "src": "/img/iceland/8.jpg",
+            "name": "8.jpg",
             "position": "center"
           },
           {
             "alt": "Gullfoss waterfall",
-            "src": "/img/iceland/4.jpg",
+            "name": "4.jpg",
             "position": "center"
           },
           {
             "alt": "Flúðalaug",
-            "src": "/img/iceland/7.jpg",
+            "name": "7.jpg",
             "position": "center"
           },
           {
             "alt": "Þingvellir National Park",
-            "src": "/img/iceland/11.jpg",
+            "name": "11.jpg",
             "position": "center"
           }
         ]
@@ -89,12 +90,12 @@
         "position": "left",
         "images": [{
             "alt": "Somewhere near Sólheimasandur",
-            "src": "/img/iceland/9.jpg",
+            "name": "9.jpg",
             "position": "center"
           },
           {
             "alt": "Vatnajökull National Park",
-            "src": "/img/iceland/13.jpg",
+            "name": "13.jpg",
             "position": "center"
           }
         ]
@@ -104,7 +105,7 @@
         "position": null,
         "images": [{
           "alt": "Reykjavík",
-          "src": "/img/iceland/10.jpg",
+          "name": "10.jpg",
           "position": "center"
         }]
       }

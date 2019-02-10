@@ -1,31 +1,32 @@
 {
   "title": "Warsaw",
   "tag": "City break",
+  "date": "2018-01",
   "date_month": "january",
   "data_year": 2018,
   "cover": {
     "alt": "Discover Warsaw through our eyes",
     "src": "/img/warsaw/cover.jpg"
   },
-  "meta_description": "In January, we went to Warsaw during a week. ",
+  "meta_description": "In January, we went to Warsaw during a week.",
   "meta_thumbnail": {
     "alt": "A week in Warsaw",
-    "src": "/img/warsaw/thumbnail.jpg"
+    "src": "/img/warsaw/cover.jpg"
   },
   "content": {
     "title": "A week in Warsaw in winter",
-    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "text": "Two days after New Year's Eve 2018, we went to Warsaw in Poland. In winter, the sun is very low and there's not much of daylight. But even if the weather is cold and the sun doesn't show up, this city is still living. In the old town, people is enjoying the last days of the Christmas market, the perfect time to drink a bit of hot wines or some Polish vodkas. For us, the best was their traditionnals potato Pancakes (Placki).",
     "gallery": [{
         "type": "2-landscape-portrait",
         "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/warsaw/3.jpg",
+            "alt": "City of Warsaw",
+            "name": "3.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/8.jpg",
+            "alt": "Palace of Culture and Science",
+            "name": "8.jpg",
             "position": "center"
           }
         ]
@@ -34,8 +35,8 @@
         "type": "1-full",
         "position": null,
         "images": [{
-          "alt": "",
-          "src": "/img/warsaw/7.jpg",
+          "alt": "Old town and blue sky in winter",
+          "name": "7.jpg",
           "position": "center"
         }]
       },
@@ -43,18 +44,18 @@
         "type": "3-squares",
         "position": "right",
         "images": [{
-            "alt": "",
-            "src": "/img/warsaw/9.jpg",
+            "alt": "New architecture vs old one",
+            "name": "9.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/2.jpg",
+            "alt": "Congress Hall",
+            "name": "2.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/11.jpg",
+            "alt": "Place of Culture and Science",
+            "name": "11.jpg",
             "position": "center"
           }
         ]
@@ -63,18 +64,18 @@
         "type": "3-mosaic",
         "position": null,
         "images": [{
-            "alt": "",
-            "src": "/img/warsaw/4.jpg",
+            "alt": "The Neon Muzeum",
+            "name": "4.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/1.jpg",
+            "alt": "Airport tarmac",
+            "name": "1.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/5.jpg",
+            "alt": "Gabe in the Neon Muzeum",
+            "name": "5.jpg",
             "position": "center"
           }
         ]
@@ -83,8 +84,8 @@
         "type": "1-square",
         "position": null,
         "images": [{
-          "alt": "",
-          "src": "/img/warsaw/6.jpg",
+          "alt": "Warsaw",
+          "name": "6.jpg",
           "position": "center"
         }]
       },
@@ -92,13 +93,13 @@
         "type": "2-square-portrait",
         "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/warsaw/13.jpg",
+            "alt": "Kelly in front of the subway",
+            "name": "13.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/warsaw/10.jpg",
+            "alt": "Buildings",
+            "name": "10.jpg",
             "position": "center"
           }
         ]
@@ -107,8 +108,8 @@
         "type": "1-full",
         "position": null,
         "images": [{
-          "alt": "Reykjavík",
-          "src": "/img/warsaw/12.jpg",
+          "alt": "Architecture",
+          "name": "12.jpg",
           "position": "center"
         }]
       }

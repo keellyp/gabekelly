@@ -1,6 +1,7 @@
 {
   "title": "Geneve",
   "tag": "Day trip",
+  "date": "2017-10",
   "date_month": "october",
   "data_year": 2017,
   "cover": {
@@ -10,17 +11,17 @@
   "meta_description": "Short day in South of France and Switzerland",
   "meta_thumbnail": {
     "alt": "Short day in South of France and Switzerland",
-    "src": "/img/geneva/thumbnail.jpg"
+    "src": "/img/geneva/cover.jpg"
   },
   "content": {
-    "title": "A quick stop in Geneva and in Annecy during a weekend in Lyon",
-    "text": "Find out what other owners of similar sized homes in the area are charging. You can ask a local real estate agent for a price range, scan local papers or go online. There are also vacation rental sites like eVaca.com. These types of sites have advertisements from owners around the world and weekly rates for the properties are listed.",
+    "title": "A quick stop in Geneva and in Annecy during a weekend",
+    "text": "As Gabe's family is living in Lyon, France, we usually like to visit cities nearby each time we go to see them. This time, he decided to drove me to Geneva and Annecy, as I had never been there before. I was quite impressed about their quality of life and how these cities are peaceful. To end on a high note this day, we had this stunning sunset on our way back to Lyon. What a pleasant weekend!",
     "gallery": [{
         "type": "1-full",
         "position": null,
         "images": [{
-          "alt": "Salut",
-          "src": "/img/geneva/3.jpg",
+          "alt": "Building in Geneva",
+          "name": "3.jpg",
           "position": "center"
         }]
       },
@@ -28,28 +29,28 @@
         "type": "2-landscape-portrait",
         "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/geneva/6.jpg",
+            "alt": "Autumn in Annecy",
+            "name": "6.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/13.jpg",
+            "alt": "Swatch Group gallery",
+            "name": "13.jpg",
             "position": "center"
           }
         ]
       },
       {
-        "type": "2-landscape-portrait",
-        "position": "right",
+        "type": "2-square-portrait",
+        "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/geneva/2.jpg",
+            "alt": "Jet d'Eau Fountain",
+            "name": "2.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/14.jpg",
+            "alt": "Jardins de l'Europe",
+            "name": "14.jpg",
             "position": "center"
           }
         ]
@@ -58,18 +59,18 @@
         "type": "3-squares",
         "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/geneva/5.jpg",
+            "alt": "Savoie flag",
+            "name": "5.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/8.jpg",
+            "alt": "Swan in Annecy Lake",
+            "name": "8.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/7.jpg",
+            "alt": "Kelly enjoying the view",
+            "name": "7.jpg",
             "position": "center"
           }
         ]
@@ -78,8 +79,8 @@
         "type": "1-square",
         "position": null,
         "images": [{
-          "alt": "",
-          "src": "/img/geneva/11.jpg",
+          "alt": "Sunset",
+          "name": "11.jpg",
           "position": "center"
         }]
       },
@@ -87,18 +88,18 @@
         "type": "3-mosaic",
         "position": null,
         "images": [{
-            "alt": "",
-            "src": "/img/geneva/1.jpg",
+            "alt": "Autumn",
+            "name": "1.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/9.jpg",
+            "alt": "Lake",
+            "name": "9.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/10.jpg",
+            "alt": "Moutains",
+            "name": "10.jpg",
             "position": "center"
           }
         ]
@@ -107,13 +108,13 @@
         "type": "2-landscape-portrait",
         "position": "left",
         "images": [{
-            "alt": "",
-            "src": "/img/geneva/4.jpg",
+            "alt": "Gulls",
+            "name": "4.jpg",
             "position": "center"
           },
           {
-            "alt": "",
-            "src": "/img/geneva/12.jpg",
+            "alt": "Sunset and tollbooth",
+            "name": "12.jpg",
             "position": "center"
           }
         ]
