@@ -82,8 +82,8 @@ class TripFooter extends React.Component {
       this._letters,
       0.4,
       {
-        paddingLeft: '5px',
-        paddingRight: '5px',
+        paddingLeft: '2px',
+        paddingRight: '2px',
         ease: Power2.easeOut,
       },
       0
@@ -221,7 +221,7 @@ const Title = styled.p`
 
   color: ${colors.white};
   font-weight: 600;
-  font-size: 3.2em;
+  font-size: 2em;
   letter-spacing: 12px;
   text-transform: uppercase;
   text-align: center;
