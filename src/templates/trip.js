@@ -24,69 +24,101 @@ export default class trip extends Component {
 
   _loopIntoGalleries() {
     this._grids = []
+    this._images = []
 
-    this._galleries.forEach(el => {
+    const pictures = this.props.data.gallery.edges
+    for (let i = 0; i < pictures.length; i++) {
+      const el = pictures[i].node.childImageSharp.fluid
+      this._images.push({
+        srcSet: el.srcSet,
+        name: el.originalName,
+        src: el.src,
+      })
+    }
+
+    for (let i = 0; i < this._galleries.length; i++) {
+      const el = this._galleries[i]
+      const images = el.images
+
+      for (let j = 0; j < images.length; j++) {
+        this._images.filter(image => {
+          if (image.name === images[j].name) {
+            images[j].srcSet = image.srcSet
+            images[j].src = image.src
+          }
+        })
+      }
+
+      console.log(i)
+
       switch (el.type) {
       case '1-full':
-        return this._grids.push(
+        this._grids.push(
           <Grids.OneFull
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '1-square':
-        return this._grids.push(
+        this._grids.push(
           <Grids.OneSquare
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '2-landscape-portrait':
-        return this._grids.push(
+        this._grids.push(
           <Grids.TwoLandscapePortrait
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '2-square-portrait':
-        return this._grids.push(
+        this._grids.push(
           <Grids.TwoSquarePortrait
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '3-mosaic':
-        return this._grids.push(
+        this._grids.push(
           <Grids.ThreeMosaic
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '3-squares':
-        return this._grids.push(
+        this._grids.push(
           <Grids.ThreeSquares
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       case '4-squares':
-        return this._grids.push(
+        this._grids.push(
           <Grids.FourSquares
             key={this._grids.length}
             images={el.images}
             position={el.position}
           />
         )
+        break
       default:
         break
       }
-    })
+    }
   }
 
   render() {
@@ -139,7 +171,7 @@ export default class trip extends Component {
 }
 
 export const pageQuery = graphql`
-  query TripQuery($id: String!, $next: String!) {
+  query TripQuery($id: String!, $next: String!, $slug: String!) {
     site {
       siteMetadata {
         siteTitle
@@ -167,7 +199,7 @@ export const pageQuery = graphql`
           position
           images {
             alt
-            src
+            name
             position
           }
         }
@@ -181,6 +213,19 @@ export const pageQuery = graphql`
       }
       fields {
         slug
+      }
+    }
+    gallery: allFile(filter: { relativeDirectory: { regex: $slug } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(srcSetBreakpoints: [375, 560, 768, 1024, 1980]) {
+              src
+              srcSet
+              originalName
+            }
+          }
+        }
       }
     }
   }

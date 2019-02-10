@@ -13,6 +13,14 @@ module.exports = {
       },
     },
 
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
+
     // Page transition
     'gatsby-plugin-transition-link',
 
@@ -32,5 +40,9 @@ module.exports = {
 
     // Control document head using Helmet component
     'gatsby-plugin-react-helmet',
+
+    // Responsive images
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 }

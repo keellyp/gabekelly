@@ -28,6 +28,7 @@ class Image extends React.Component {
 
   _isVisible() {
     this.element.src = this.props.src
+    this.element.srcset = this.props.srcSet
     TweenLite.to(this.element, 0.6, {
       opacity: 1,
       y: '0%',
@@ -55,7 +56,12 @@ export const OneSquare = ({ images, position }) => {
     <GridOneSquare position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -69,7 +75,12 @@ export const OneFull = ({ images, position }) => {
     <GridOneFull position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -83,7 +94,12 @@ export const TwoSquarePortrait = ({ images, position }) => {
     <GridTwoSquarePortrait position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -97,7 +113,12 @@ export const TwoLandscapePortrait = ({ images, position }) => {
     <GridTwoLandscapePortrait position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -111,7 +132,12 @@ export const ThreeSquares = ({ images, position }) => {
     <GridThreeSquares position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -125,7 +151,12 @@ export const ThreeMosaic = ({ images, position }) => {
     <GridThreeMosaic position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
@@ -139,7 +170,12 @@ export const FourSquares = ({ images, position }) => {
     <GridFourSquares position={position}>
       {images.map((img, index) => (
         <GridContainer key={index}>
-          <ImageWrapper src={img.src} alt={img.alt} config={config} />
+          <ImageWrapper
+            src={img.src}
+            srcSet={img.srcSet}
+            alt={img.alt}
+            config={config}
+          />
           <Caption>{img.alt}</Caption>
         </GridContainer>
       ))}
