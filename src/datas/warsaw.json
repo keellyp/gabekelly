@@ -6,12 +6,12 @@
   "data_year": 2018,
   "cover": {
     "alt": "Discover Warsaw through our eyes",
-    "src": "/img/warsaw/cover.jpg"
+    "src": "/img/warsaw.jpg"
   },
   "meta_description": "In January, we went to Warsaw during a week.",
   "meta_thumbnail": {
     "alt": "A week in Warsaw",
-    "src": "/img/warsaw/cover.jpg"
+    "src": "/img/warsaw.jpg"
   },
   "content": {
     "title": "A week in Warsaw in winter",
