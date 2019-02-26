@@ -201,7 +201,7 @@ const GridContainer = styled.div`
 
   display: grid;
   grid-row-gap: 10px;
-  grid-template-rows: auto 1em;
+  grid-template-rows: minmax(auto, 1fr) auto;
 `
 
 const Caption = styled.p`

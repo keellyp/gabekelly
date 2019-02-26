@@ -8,7 +8,7 @@ export const datas = {
       alt: 'Gabe & Kelly during FootballWorld Cup 2018',
     },
     intro:
-      'You love having a second home but the mortgage is putting a crater in your wallet. Many second home owners turn to renting their property as a vacation rental to help defray the costs of ownership. How do you price a vacation home rental without overcharging but making enough to cover your costs? Do your research.',
+      'We are Kelly Phan and Gabriel Stik, two French frontend developers based in Paris. We like to travel the world to create our own memories and that\'s why we created this website. We wanted to archive our travels in a piece of our savoir-faire. Gabe&Kelly is our travel blog where we share our best pictures from countries we had the chance to explore.',
     baseline: 'Freelancers . Globe trotters . Frenchies',
     socials: [
       {
@@ -16,8 +16,8 @@ export const datas = {
         src: 'https://twitter.com/keellyp',
       },
       {
-        alt: '@gabrielstik',
-        src: 'https://twitter.com/gabrielstik',
+        alt: '@gabriel_stik',
+        src: 'https://twitter.com/gabriel_stik',
       },
     ],
     website: [

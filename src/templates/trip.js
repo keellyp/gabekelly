@@ -48,9 +48,6 @@ export default class trip extends Component {
           }
         })
       }
-
-      console.log(i)
-
       switch (el.type) {
       case '1-full':
         this._grids.push(
