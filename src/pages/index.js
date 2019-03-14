@@ -32,7 +32,7 @@ class index extends Component {
       return timeline
         .set(bg, { opacity: 1, zIndex: 1 })
         .set(this.titles.current, { opacity: 0 })
-        .to(bg, 0.5, { y: top, ease: Power4.easeIn })
+        .to(bg, 2, { y: top, ease: Power1.easeInOut })
         .to(
           bg,
           0.8,
@@ -40,7 +40,7 @@ class index extends Component {
             height: `${height}px`,
             ease: Power4.easeInOut,
           },
-          0.3
+          2
         )
     }
   }

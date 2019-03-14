@@ -62,9 +62,9 @@ class TripFooter extends React.Component {
     })
     this._timelineVisible.staggerTo(
       this._letters,
-      0.4,
-      { y: '0%', ease: Power2.easeIn },
-      0.04,
+      0.5,
+      { y: '0%', ease: Power2.easeOut },
+      0.06,
       0.6
     )
   }
@@ -93,7 +93,7 @@ class TripFooter extends React.Component {
       0.2,
       {
         y: '-100%',
-        ease: Power2.easeOut,
+        ease: Power2.easeIn,
       },
       0.05,
       0.4
