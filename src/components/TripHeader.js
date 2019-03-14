@@ -222,6 +222,7 @@ const HeaderTitle = styled.h1`
   line-height: 1em;
   letter-spacing: 12px;
   text-transform: uppercase;
+  overflow: hidden;
 
   div {
     display: inline-block;

@@ -5,7 +5,10 @@ import { device } from '../utils/breakpoints'
 
 import { Layout, AboutContent } from '../app'
 
+import TweenLite from 'gsap'
+
 import { datas } from '../datas'
+import { Power0, Power1 } from 'gsap/TweenLite';
 
 class about extends Component {
   constructor(props) {
@@ -26,6 +29,7 @@ class about extends Component {
       window.scrollTo(0, 0)
     })
 
+    this.scroll = 0
     this._bodyHeight = document.body.offsetHeight
     this._setupEventListener()
   }
@@ -38,7 +42,9 @@ class about extends Component {
     document.body.addEventListener('mousewheel', this._scrollEventListener)
     document.body.addEventListener('DOMMouseScroll', this._scrollEventListener)
     document.body.addEventListener('wheel', this._scrollEventListener)
-    document.body.addEventListener('touchmove', this._scrollEventListener)
+    if (!window.navigator.userAgent.match(/iPad/i) && !window.navigator.userAgent.match(/iPhone/i)) {
+      document.body.addEventListener('touchmove', this._scrollEventListener)
+    }
     document.body.addEventListener('touchstart', this._touchStartEventListener)
   }
 
@@ -56,20 +62,27 @@ class about extends Component {
     document.body.removeEventListener('touchmove', this._scrollEventListener)
   }
 
-  _scrollEventListener() {
-    const windowScroll = window.scrollY
+  _scrollEventListener(e) {
+    if (!window.navigator.userAgent.match(/iPad/i) && !window.navigator.userAgent.match(/iPhone/i)) {
+      this.scroll += e.deltaY
+      this.$title.current.style.transform = `translateX(-${this.scroll}px)`
+    }
+    
+    else {
+      const windowScroll = window.scrollY
 
-    const minValue = 0
-    const maxValue = 6
-    const multiplier = 70
+      const minValue = 0
+      const maxValue = 6
+      const multiplier = 70
 
-    const value = Math.min(
-      maxValue * multiplier,
-      Math.max(minValue, windowScroll)
-    )
-    const bindValue = value / multiplier
+      const value = Math.min(
+        maxValue * multiplier,
+        Math.max(minValue, windowScroll)
+      )
+      const bindValue = value / multiplier
 
-    this.$title.current.style.transform = `translateX(-${bindValue}em)`
+      this.$title.current.style.transform = `translateX(-${bindValue}em)`
+    }
   }
 
   _touchStartEventListener(e) {}
