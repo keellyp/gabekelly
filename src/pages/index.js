@@ -32,15 +32,15 @@ class index extends Component {
       return timeline
         .set(bg, { opacity: 1, zIndex: 1 })
         .set(this.titles.current, { opacity: 0 })
-        .to(bg, 2, { y: top, ease: Power1.easeInOut })
+        .to(bg, 2, { y: top, ease: Power4.easeInOut })
         .to(
           bg,
-          0.8,
+          2,
           {
             height: `${height}px`,
             ease: Power4.easeInOut,
           },
-          2
+          0
         )
     }
   }
@@ -82,7 +82,7 @@ class index extends Component {
                   <TransitionLink
                     to={post.node.fields.slug}
                     exit={{
-                      length: 1,
+                      length: 2.2,
                       trigger: ({ exit }) => this.exitAnimation(exit),
                     }}
                     entry={{

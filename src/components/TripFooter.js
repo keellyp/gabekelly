@@ -101,11 +101,11 @@ class TripFooter extends React.Component {
     this._timelineLeave.set(document.body, { overflow: 'hidden' })
     this._timelineLeave.to(
       this.$footer.current,
-      0.5,
+      1.2,
       {
         height: '100vh',
         y: '-30vh',
-        ease: Power2.easeIn,
+        ease: Power2.easeInOut,
       },
       0.5
     )
@@ -125,7 +125,7 @@ class TripFooter extends React.Component {
         top: 0,
         ease: Power2.easeInOut,
       },
-      1.5
+      3
     )
   }
 
@@ -138,7 +138,7 @@ class TripFooter extends React.Component {
           style={{ display: 'block', height: '100%', width: '100%' }}
           to={next.fields.slug}
           exit={{
-            length: 2.5,
+            length: 4.2,
             trigger: () => this._onLeaveAnimation(),
           }}
           entry={{
