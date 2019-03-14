@@ -82,11 +82,11 @@ class index extends Component {
                   <TransitionLink
                     to={post.node.fields.slug}
                     exit={{
-                      length: 2.2,
+                      length: 2,
                       trigger: ({ exit }) => this.exitAnimation(exit),
                     }}
                     entry={{
-                      delay: 1,
+                      delay: 2,
                     }}
                   >
                     {post.node.title}

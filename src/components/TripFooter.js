@@ -142,7 +142,7 @@ class TripFooter extends React.Component {
             trigger: () => this._onLeaveAnimation(),
           }}
           entry={{
-            delay: 2.5,
+            delay: 4.2,
             trigger: () => {
               document.body.style.overflow = 'initial'
             },
