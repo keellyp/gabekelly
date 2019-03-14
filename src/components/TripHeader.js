@@ -91,22 +91,22 @@ class TripHeader extends React.Component {
 
     this._timelineEnter = new TimelineLite()
 
-    this._timelineEnter.set(this._words, { y: '100%', opacity: 0 })
-    this._timelineEnter.set(this._letters, { y: '100%' })
+    this._timelineEnter.set(this._words, { y: '110%', opacity: 0 })
+    this._timelineEnter.set(this._letters, { y: '110%' })
 
     this._timelineEnter.staggerTo(
       this._words,
-      0.5,
-      { y: '0%', opacity: 1, ease: Power4.easeIn },
-      0.15,
-      0
+      .5,
+      { y: '0%', opacity: 1, ease: Power4.easeOut },
+      0.1,
+      .5
     )
     this._timelineEnter.staggerTo(
       this._letters,
-      0.3,
-      { y: '0%', ease: Power4.easeIn },
+      1.2,
+      { y: '0%', ease: Power4.easeOut },
       0.04,
-      0.25
+      0.75
     )
   }
 
