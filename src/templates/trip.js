@@ -135,6 +135,7 @@ export default class trip extends Component {
             thumbnail={url + datas.currentItem.meta_thumbnail}
             url={url}
           />
+
           <div>
             <TripHeader
               tag={datas.currentItem.tag}
@@ -147,6 +148,7 @@ export default class trip extends Component {
             <TripContent
               content={datas.currentItem.content}
               className="galleryContainer"
+              ref={node => (this.tripContent = node)}
             >
               {this._grids}
             </TripContent>
@@ -159,6 +161,7 @@ export default class trip extends Component {
                 rootMargin: '0px 0px 200px 0px',
               }}
               beforeLeave={() => this.tripHeader.onLeaveAnimation()}
+              setTripContentStyle={() => this.tripContent.setStyle()}
             />
           </div>
         </Layout>
