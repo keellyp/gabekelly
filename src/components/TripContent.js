@@ -4,16 +4,28 @@ import PropTypes from 'prop-types'
 
 import { device } from '../utils/breakpoints'
 
-const TripContent = ({ content, children }) => {
-  return (
-    <React.Fragment>
-      <ContentContainer>
-        <Title>{content.title}</Title>
-        <Content>{content.text}</Content>
-      </ContentContainer>
-      <GalleriesContainer>{children}</GalleriesContainer>
-    </React.Fragment>
-  )
+class TripContent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.container = React.createRef()
+  }
+
+  setStyle() {
+    this.container.current.style.marginBottom = 'calc(70vh + 140px)'
+  }
+
+  render() {
+    const { content, children } = this.props
+    return (
+      <React.Fragment>
+        <ContentContainer>
+          <Title>{content.title}</Title>
+          <Content>{content.text}</Content>
+        </ContentContainer>
+        <GalleriesContainer ref={this.container}>{children}</GalleriesContainer>
+      </React.Fragment>
+    )
+  }
 }
 
 export default TripContent

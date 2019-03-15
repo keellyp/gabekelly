@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    -webkit-backface-visibility: hidden;
   }
 
   a {

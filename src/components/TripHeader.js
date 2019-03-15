@@ -224,6 +224,8 @@ const HeaderTitle = styled.h1`
   text-transform: uppercase;
   overflow: hidden;
 
+  will-change: transform;
+
   div {
     display: inline-block;
     will-change: transform;
