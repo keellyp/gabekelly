@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { TweenLite, Power4 } from 'gsap'
 
+import { device } from '../utils/breakpoints'
 import * as colors from '../utils/colors'
 import withIntersectionObserver from '../utils/withIntersectionObserver'
 
@@ -201,13 +202,15 @@ const GridContainer = styled.div`
 
   display: grid;
   grid-row-gap: 10px;
-  grid-template-rows: minmax(auto, 1fr) auto;
+  grid-template-rows: 1fr 2em;
 `
 
 const Caption = styled.p`
   font-size: 0.9em;
   line-height: 1em;
   color: ${colors.grey};
+
+  margin-bottom: 1em;
 `
 
 const GridImage = styled.img`
@@ -234,12 +237,22 @@ const GridTwoSquarePortrait = styled(Grid)`
   grid-template-rows: 68vw;
   grid-template-columns: ${props =>
     props.position === 'left' ? '30.4vw auto' : 'auto 30.4vw'};
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 90vh;
+  }
 `
 
 const GridTwoLandscapePortrait = styled(Grid)`
   grid-template-rows: 34vw;
   grid-template-columns: ${props =>
     props.position === 'left' ? '30.4vw auto' : 'auto 30.4vw'};
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 40vh;
+  }
 `
 
 const GridThreeSquares = styled(Grid)`
@@ -259,6 +272,10 @@ const GridThreeSquares = styled(Grid)`
   }
   ${GridContainer}:nth-child(3) {
     grid-area: side;
+  }
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
   }
 `
 

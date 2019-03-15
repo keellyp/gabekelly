@@ -223,6 +223,8 @@ const HeaderTitle = styled.h1`
   letter-spacing: 12px;
   text-transform: uppercase;
 
+  will-change: transform;
+
   div {
     display: inline-block;
     will-change: transform;

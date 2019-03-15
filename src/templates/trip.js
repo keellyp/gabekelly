@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import { TransitionState } from 'gatsby-plugin-transition-link'
 
 import { Layout, TripHeader, TripContent, TripFooter } from '../app'
 import { Metatags } from '../components/Head'
@@ -135,32 +136,41 @@ export default class trip extends Component {
             thumbnail={url + datas.currentItem.meta_thumbnail}
             url={url}
           />
-          <div>
-            <TripHeader
-              tag={datas.currentItem.tag}
-              title={datas.currentItem.title}
-              date_month={datas.currentItem.date_month}
-              data_year={datas.currentItem.data_year}
-              cover={datas.currentItem.cover}
-              ref={node => (this.tripHeader = node)}
-            />
-            <TripContent
-              content={datas.currentItem.content}
-              className="galleryContainer"
-            >
-              {this._grids}
-            </TripContent>
-            <Footer
-              ref={n => (this.footer = n)}
-              next={datas.nextItem}
-              className="footer"
-              config={{
-                root: '',
-                rootMargin: '0px 0px 200px 0px',
-              }}
-              beforeLeave={() => this.tripHeader.onLeaveAnimation()}
-            />
-          </div>
+          <TransitionState>
+            {({ transitionStatus }) => {
+              // console.log(transitionStatus)
+              return (
+                <div>
+                  <TripHeader
+                    tag={datas.currentItem.tag}
+                    title={datas.currentItem.title}
+                    date_month={datas.currentItem.date_month}
+                    data_year={datas.currentItem.data_year}
+                    cover={datas.currentItem.cover}
+                    ref={node => (this.tripHeader = node)}
+                  />
+                  <TripContent
+                    content={datas.currentItem.content}
+                    className="galleryContainer"
+                    ref={node => (this.tripContent = node)}
+                  >
+                    {this._grids}
+                  </TripContent>
+                  <Footer
+                    ref={n => (this.footer = n)}
+                    next={datas.nextItem}
+                    className="footer"
+                    config={{
+                      root: '',
+                      rootMargin: '0px 0px 200px 0px',
+                    }}
+                    beforeLeave={() => this.tripHeader.onLeaveAnimation()}
+                    setTripContentStyle={() => this.tripContent.setStyle()}
+                  />
+                </div>
+              )
+            }}
+          </TransitionState>
         </Layout>
       </React.Fragment>
     )

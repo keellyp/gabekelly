@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Power2, TimelineLite } from 'gsap'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import PropTypes from 'prop-types'
 
@@ -74,10 +73,14 @@ class TripFooter extends React.Component {
   _onLeaveAnimation() {
     this._timelineLeave = new TimelineLite({
       onStart: () => this.props.beforeLeave(),
+      z: 0.1,
+      rotationZ: 0.01,
+      force3D: true,
     })
 
     const top = (28.5 * window.innerHeight) / 100
 
+    this._timelineLeave.set(document.body, { overflow: 'hidden' })
     this._timelineLeave.to(
       this._letters,
       0.4,
@@ -98,14 +101,14 @@ class TripFooter extends React.Component {
       0.05,
       0.4
     )
-    this._timelineLeave.set(document.body, { overflow: 'hidden' })
     this._timelineLeave.to(
       this.$footer.current,
-      0.5,
+      0.8,
       {
         height: '100vh',
         y: '-30vh',
-        ease: Power2.easeIn,
+        autoRound: false,
+        ease: Power2.easeInOut,
       },
       0.5
     )
@@ -114,19 +117,23 @@ class TripFooter extends React.Component {
       bottom: 0,
       y: 0,
     })
+    this._timelineLeave.add(() => this.props.setTripContentStyle())
     this._timelineLeave.set(window, { scrollTo: { y: 0, x: 0 } })
     this._timelineLeave.to(
       this.$footer.current,
-      1,
+      0.6,
       {
         height: `${(window.innerWidth * 9) / 16}px`,
-        y: `${top - 139.5}px`,
+        y: `${top - 140}px`,
+        autoRound: false,
         bottom: 'initial',
         top: 0,
         ease: Power2.easeInOut,
       },
-      1.5
+      1.3
     )
+
+    console.log(this._timelineLeave.totalDuration())
   }
 
   render() {
@@ -138,11 +145,11 @@ class TripFooter extends React.Component {
           style={{ display: 'block', height: '100%', width: '100%' }}
           to={next.fields.slug}
           exit={{
-            length: 2.5,
+            length: 1.9,
             trigger: () => this._onLeaveAnimation(),
           }}
           entry={{
-            delay: 2.5,
+            delay: 1.9,
             trigger: () => {
               document.body.style.overflow = 'initial'
             },
