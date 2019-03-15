@@ -106,18 +106,11 @@ class TripFooter extends React.Component {
     )
     this._timelineLeave.to(
       this.$footer.current,
-<<<<<<< HEAD
       1.2,
       {
         height: '100vh',
         y: '-30vh',
-=======
-      0.8,
-      {
-        height: '100vh',
-        y: '-30vh',
         autoRound: false,
->>>>>>> develop
         ease: Power2.easeInOut,
       },
       0.5
