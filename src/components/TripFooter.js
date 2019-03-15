@@ -72,7 +72,10 @@ class TripFooter extends React.Component {
   // Launch this function before route leave
   _onLeaveAnimation() {
     this._timelineLeave = new TimelineLite({
-      onStart: () => this.props.beforeLeave(),
+      onStart: () => {
+        window.scrollTo(0, document.body.scrollHeight)
+        this.props.beforeLeave()
+      },
       z: 0.1,
       rotationZ: 0.01,
       force3D: true,
@@ -130,10 +133,8 @@ class TripFooter extends React.Component {
         top: 0,
         ease: Power2.easeInOut,
       },
-      1.3
+      1.8
     )
-
-    console.log(this._timelineLeave.totalDuration())
   }
 
   render() {
@@ -145,11 +146,11 @@ class TripFooter extends React.Component {
           style={{ display: 'block', height: '100%', width: '100%' }}
           to={next.fields.slug}
           exit={{
-            length: 1.9,
+            length: 2.4,
             trigger: () => this._onLeaveAnimation(),
           }}
           entry={{
-            delay: 1.9,
+            delay: 1.8,
             trigger: () => {
               document.body.style.overflow = 'initial'
             },
